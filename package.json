@@ -30,7 +30,7 @@
     "graphql": "15.0.0",
     "graphql-playground-middleware-lambda": "1.7.13",
     "mongodb": "3.5.5",
-    "nodemon": "2.0.2",
+    "nodemon": "2.0.3",
     "require": "2.4.20",
     "sirv-cli": "0.4.5",
     "svelte-apollo": "0.3.0",
