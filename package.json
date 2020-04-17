@@ -29,7 +29,7 @@
     "encoding": "0.1.12",
     "graphql": "15.0.0",
     "graphql-playground-middleware-lambda": "1.7.15",
-    "mongodb": "3.5.5",
+    "mongodb": "3.5.6",
     "nodemon": "2.0.3",
     "require": "2.4.20",
     "sirv-cli": "0.4.5",
