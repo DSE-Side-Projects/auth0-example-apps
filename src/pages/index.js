@@ -1,14 +1,13 @@
-import React from "react"
-import Apps from "../components/Apps"
-import { Container, Row, Col } from "reactstrap"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { ContentPlaceholder } from "../components/Apps"
-
-import { graphql } from "gatsby"
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Apps, { ContentPlaceholder } from '../components/Apps';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
-  const apps = data.allSanityApp.edges
+  const apps = data.allSanityApp.edges;
 
   return (
     <Layout>
@@ -28,10 +27,10 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const data = graphql`
   query {
@@ -68,4 +67,8 @@ export const data = graphql`
       }
     }
   }
-`
+`;
+
+IndexPage.propTypes = {
+  data: PropTypes.isRequired,
+};

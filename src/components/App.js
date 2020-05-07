@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   Card,
   CardImg,
@@ -6,15 +7,17 @@ import {
   CardTitle,
   Row,
   Button,
-} from "reactstrap"
-import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
-import { ProfilePlaceholder } from "../pages/profile"
+} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { ProfilePlaceholder } from '../pages/profile';
+
 
 const App = ({ app }) => {
-  const [siteScreenshot, setSiteScreenshot] = useState()
+  const [siteScreenshot, setSiteScreenshot] = useState();
 
-  const slug = `app/${app.node.slug.current}`
+  const slug = `app/${app.node.slug.current}`;
 
   useEffect(() => {
     // This is a temporary proof-of concept.
@@ -22,27 +25,27 @@ const App = ({ app }) => {
     // On deploy, netlify should run a webhook, touching the below endpoint. This would trigger a serverless function, which in turn would fetch the latest screenshot of all deployed sites and put them into corresponding Sanity objects. Somewhere inbetween it could be worth it to resize/compress sccreenshots with kraken.io.
 
     // For now, this code just fetches a single screenshot which acts as a placeholder.
-    const screenshot = async () => {
-      return fetch("https://dse.netlify.app/.netlify/functions/screenshot", {
-        headers: { Accept: "application/json" },
+
+    // eslint-disable-next-line no-undef
+    const screenshot = async () => fetch('https://dse.netlify.app/.netlify/functions/screenshot', {
+      headers: { Accept: 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSiteScreenshot(data);
       })
-        .then((response) => response.json())
-        .then((data) => {
-          setSiteScreenshot(data)
-        })
-        .catch((error) => ({ statusCode: 422, body: String(error) }))
-    }
-    screenshot()
-  }, [])
+      .catch((error) => ({ statusCode: 422, body: String(error) }));
+    screenshot();
+  }, []);
 
   return (
     <>
-      <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
+      <Card style={{ width: `${24}rem` }} className="mx-auto mt-5">
         <Link to={slug}>
           {siteScreenshot ? (
             <CardImg
               top
-              style={{ minHeight: "200px" }}
+              style={{ minHeight: '200px' }}
               src={siteScreenshot}
               alt={app.node.title}
               loading="lazy"
@@ -80,13 +83,19 @@ const App = ({ app }) => {
           </Row>
           <Row className="mx-auto justify-content-center mb-3">
             <Button className="btn-block btn-light" href={app.node.url}>
-              {app.node.title} &rarr;
+              {app.node.title}
+              {' '}
+              &rarr;
             </Button>
           </Row>
         </CardBody>
       </Card>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
+App.propTypes = {
+  app: PropTypes.node.isRequired,
+};

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
 import React from 'react';
 import { Auth0Provider } from './src/utils/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +17,7 @@ const onRedirectCallback = (appState) => {
 const Auth0Domain = process.env.AUTH0_DOMAIN;
 const Auth0ClientID = process.env.AUTH0_CLIENTID;
 const Auth0Audience = process.env.AUTH0_AUDIENCE;
-export const wrapRootElement = ({ element }) => (
+const wrapRootElement = ({ element }) => (
   <Auth0Provider
     domain={Auth0Domain}
     client_id={Auth0ClientID}
@@ -26,3 +28,5 @@ export const wrapRootElement = ({ element }) => (
     {element}
   </Auth0Provider>
 );
+
+export default wrapRootElement;

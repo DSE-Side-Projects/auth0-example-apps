@@ -1,10 +1,14 @@
-import { Link } from "gatsby"
-import React from "react"
-import { Navbar, Nav, Button } from "reactstrap"
-import { useAuth0 } from "../utils/auth"
+import { Link } from 'gatsby';
+import React from 'react';
+import { Navbar, Nav, Button } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { useAuth0 } from '../utils/auth';
+
 
 const Header = ({ siteTitle }) => {
-  const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0()
+  const {
+    isAuthenticated, loginWithRedirect, logout, loading,
+  } = useAuth0();
 
   return (
     <>
@@ -27,9 +31,8 @@ const Header = ({ siteTitle }) => {
           </Link>
           {!isAuthenticated && !loading && (
             <Button
-              onClick={() =>
-                loginWithRedirect({ appState: `${window.location.pathname}` })
-              }
+              // eslint-disable-next-line no-undef
+              onClick={() => loginWithRedirect({ appState: `${window.location.pathname}` })}
             >
               Log in
             </Button>
@@ -45,7 +48,11 @@ const Header = ({ siteTitle }) => {
         </Nav>
       </Navbar>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
+
+Header.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+};

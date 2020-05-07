@@ -1,9 +1,9 @@
-import React from "react"
-import Apps from "./Apps"
-import { Container, Row, Col } from "reactstrap"
-import SEO from "./seo"
-import { ContentPlaceholder } from "./Apps"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import { graphql, useStaticQuery } from 'gatsby';
+import Apps, { ContentPlaceholder } from './Apps';
+import SEO from './seo';
+
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -36,8 +36,8 @@ const Home = () => {
         }
       }
     }
-  `)
-  const apps = data.allSanityApp.edges
+  `);
+  const apps = data.allSanityApp.edges;
 
   return (
     <>
@@ -57,7 +57,7 @@ const Home = () => {
         </Row>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

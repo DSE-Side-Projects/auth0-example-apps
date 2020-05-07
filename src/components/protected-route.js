@@ -1,18 +1,22 @@
-import { useEffect } from "react"
-import { useAuth0 } from "../utils/auth"
+import { useEffect } from 'react';
+import { useAuth0 } from '../utils/auth';
 
-export const ProtectedRoute = ({ children }) => {
-  const { loading, isAuthenticated, loginWithRedirect } = useAuth0()
+const ProtectedRoute = ({ children }) => {
+  const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
   useEffect(() => {
     if (loading || isAuthenticated) {
-      return undefined
+      return undefined;
     }
     const asyncLogin = async () => {
       await loginWithRedirect({
+        // eslint-disable-next-line no-undef
         appState: { targetUrl: window.location.pathname },
-      })
-    }
-    asyncLogin()
-  }, [loading, isAuthenticated, loginWithRedirect])
-  return children
-}
+      });
+    };
+    asyncLogin();
+    return null;
+  }, [loading, isAuthenticated, loginWithRedirect]);
+  return children;
+};
+
+export default ProtectedRoute;

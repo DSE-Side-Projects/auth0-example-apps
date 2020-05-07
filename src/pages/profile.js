@@ -1,11 +1,12 @@
-import { Container, Row, Col } from "reactstrap"
-import React from "react"
-import ContentLoader from "react-content-loader"
-import Layout from "../components/layout"
-import { useAuth0 } from "../utils/auth"
+import { Container, Row, Col } from 'reactstrap';
+import React from 'react';
+import ContentLoader from 'react-content-loader';
+import PropTypes from 'prop-types';
+import Layout from '../components/layout';
+import { useAuth0 } from '../utils/auth';
 
 const Profile = () => {
-  const { loading, user } = useAuth0()
+  const { loading, user } = useAuth0();
   return (
     <Layout>
       <Container fluid="true" className="container-fluid px-auto mx-auto">
@@ -31,10 +32,12 @@ const Profile = () => {
                 <Row className="mx-auto my-auto justify-content-center">
                   <small>
                     <a
-                      href={`https://duckduckgo.com/?q=map+${user["https://example.com/geoip"].latitude}%2C+${user["https://example.com/geoip"].longitude}&t=ffab&atb=v199-1&ia=web&iaxm=maps`}
+                      href={`https://duckduckgo.com/?q=map+${user['https://example.com/geoip'].latitude}%2C+${user['https://example.com/geoip'].longitude}&t=ffab&atb=v199-1&ia=web&iaxm=maps`}
                     >
-                      {user["https://example.com/geoip"].city_name},{" "}
-                      {user["https://example.com/geoip"].country_name}
+                      {user['https://example.com/geoip'].city_name}
+                      ,
+                      {' '}
+                      {user['https://example.com/geoip'].country_name}
                     </a>
                   </small>
                 </Row>
@@ -44,13 +47,13 @@ const Profile = () => {
         </Row>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
 
 export const ProfilePlaceholder = ({ type }) => {
-  if (type && type === "screenshot") {
+  if (type && type === 'screenshot') {
     return (
       <ContentLoader
         speed={3}
@@ -62,7 +65,7 @@ export const ProfilePlaceholder = ({ type }) => {
       >
         <rect x="0" y="0" rx="1" ry="1" width="382" height="238" />
       </ContentLoader>
-    )
+    );
   }
   return (
     <ContentLoader
@@ -78,5 +81,9 @@ export const ProfilePlaceholder = ({ type }) => {
       <rect x="50" y="288" rx="3" ry="3" width="480" height="6" />
       <circle cx="300" cy="110" r="100" />
     </ContentLoader>
-  )
-}
+  );
+};
+
+ProfilePlaceholder.propTypes = {
+  type: PropTypes.string.isRequired,
+};
