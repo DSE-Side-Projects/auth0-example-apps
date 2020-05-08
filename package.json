@@ -46,43 +46,37 @@
     "react-content-loader": "5.0.4",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
-    "reactstrap": "8.4.1"
+    "reactstrap": "8.4.1",
+    "babel-jest": "^26.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
-    "babel-jest": "^26.0.1",
+    "babel-preset-gatsby": "^0.4.1",
+    "codecov": "^3.6.5",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "gatsby-cli": "2.12.7",
     "gatsby-plugin-eslint": "^2.0.8",
+    "identity-obj-proxy": "^3.0.0",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\" && yarn lint",
     "lint": "eslint 'src/**/*.js' -f pretty --fix",
     "start": "yarn run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --coverage && codecov",
+    "test:watch": "jest --watch --coverage"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "jest": {
-    "testPathIgnorePatterns" : [
-      "<rootDir>/react-spa",
-      "<rootDir>/angular-spa",
-      "<rootDir>/vue-spa",
-      "<rootDir>/dseapps",
-      "<rootDir>/auth0"
-    ]
   }
 }

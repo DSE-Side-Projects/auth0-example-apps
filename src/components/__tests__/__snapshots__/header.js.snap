@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<nav
+  className="navbar navbar-expand-md navbar-light bg-light"
+>
+  <img
+    alt="Auth0 logo"
+    className="float-left mr-2"
+    src="https://cdn.auth0.com/website/press/resources/auth0-logo-monotone-black.svg"
+    width="80px"
+  />
+  <a
+    className="navbar-brand"
+    href="/"
+  >
+    Default Starter
+  </a>
+  <ul
+    className="ml-auto navbar-nav"
+  >
+    <a
+      className="my-auto mr-3 text-dark"
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      className="my-auto mr-3 text-dark"
+      href="/about"
+    >
+      About
+    </a>
+    <button
+      aria-label={null}
+      className="btn btn-secondary"
+      onClick={[Function]}
+      type="button"
+    >
+      Log in
+    </button>
+  </ul>
+</nav>
+`;
