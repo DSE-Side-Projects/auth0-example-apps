@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "gatsby-cli": "2.12.7",
-    "prettier": "2.0.4"
+    "prettier": "2.0.5"
   },
   "scripts": {
     "build": "gatsby build",
