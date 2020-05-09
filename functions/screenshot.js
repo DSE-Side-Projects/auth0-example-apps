@@ -1,11 +1,11 @@
 const fetch = require("node-fetch")
 
-// where do we get site ids?
+exports.handler = async (event, context) => {
+  console.log(event.queryStringParameters.appId)
 
-const SITE_ID = "001b81f1-b7fb-4c73-8247-2bb7263d59cd"
+  const SITE_ID = event.queryStringParameters.appId || "61f07d5c-c199-49ba-8e70-4c309e9ebb09";
 const DEPLOYS_ENDPOINT = `https://api.netlify.com/api/v1/sites/${SITE_ID}/deploys`
 
-exports.handler = async (event, context) => {
   // Making two requests is not ideal :(
 
   // In first request we fetch the latest deploy id
@@ -18,6 +18,7 @@ exports.handler = async (event, context) => {
     .then((response) => response.json())
     .then((data) => {
       const lastDeploy = data[0].id
+      console.log(lastDeploy)
 
       // Now using this last deploy id, we fetch last deploy's screenchot URL
       return fetch(`https://api.netlify.com/api/v1/deploys/${lastDeploy}`, {
@@ -28,6 +29,7 @@ exports.handler = async (event, context) => {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data.screenshot_url)
           if (!data.screenshot_url) {
             throw new Error(
               'Screenshot is "null". I know, I know, it makes no sense, yet here we are ¯\\_(ツ)_/¯'

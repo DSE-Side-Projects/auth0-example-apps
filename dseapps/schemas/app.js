@@ -17,6 +17,11 @@ export default {
       type: "url",
     },
     {
+      name: "appId",
+      title: "Application Netlify ID",
+      type: "string"
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",

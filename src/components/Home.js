@@ -17,6 +17,7 @@ const Home = () => {
                 url
               }
             }
+            appId
             _rawDescription(resolveReferences: { maxDepth: 5 })
             technology {
               title

@@ -44,6 +44,7 @@ export const data = graphql`
               url
             }
           }
+          appId
           _rawDescription(resolveReferences: { maxDepth: 5 })
           technology {
             title

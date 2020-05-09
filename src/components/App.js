@@ -23,7 +23,7 @@ const App = ({ app }) => {
 
     // For now, this code just fetches a single screenshot which acts as a placeholder.
     const screenshot = async () => {
-      return fetch("https://dse.netlify.app/.netlify/functions/screenshot", {
+      return fetch(`https://dse.netlify.app/.netlify/functions/screenshot?appId=${app.node.appId}`, {
         headers: { Accept: "application/json" },
       })
         .then((response) => response.json())
