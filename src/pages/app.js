@@ -27,7 +27,7 @@ const AppPage = ({ data }) => {
 
     // For now, this code just fetches a single screenshot which acts as a placeholder.
     const screenshot = async () => {
-      return fetch(`https://dse.netlify.app/.netlify/functions/screenshot?appId=${app.appId}`, {
+      return fetch(`https://falling-wood-03a1.rosnovsky.workers.dev/?appId=${app.appId}`, {
         headers: { Accept: "application/json" },
       })
         .then((response) => response.json())
