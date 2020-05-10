@@ -9,36 +9,15 @@ import {
   Container,
   Col,
 } from "reactstrap"
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
 
 const AppPage = ({ data }) => {
-  const [siteScreenshot, setSiteScreenshot] = useState()
   const app = data.sanityApp
   const slug = `app/${app.slug.current}`
-
-  useEffect(() => {
-    // This is a temporary proof-of concept.
-
-    // On deploy, netlify should run a webhook, touching the below endpoint. This would trigger a serverless function, which in turn would fetch the latest screenshot of all deployed sites and put them into corresponding Sanity objects. Somewhere inbetween it could be worth it to resize/compress sccreenshots with kraken.io.
-
-    // For now, this code just fetches a single screenshot which acts as a placeholder.
-    const screenshot = async () => {
-      return fetch(`https://falling-wood-03a1.rosnovsky.workers.dev/?appId=${app.appId}`, {
-        headers: { Accept: "application/json" },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          setSiteScreenshot(data)
-        })
-        .catch((error) => ({ statusCode: 422, body: String(error) }))
-    }
-    screenshot()
-  }, [])
 
   return (
     <Layout>
@@ -48,11 +27,11 @@ const AppPage = ({ data }) => {
           <Col className="d-flex mx-auto justify-content-center">
             <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
               <Link to={slug}>
-                {siteScreenshot ? (
+                {app.screenshot ? (
                   <CardImg
                     top
                     style={{ minHeight: "200px" }}
-                    src={siteScreenshot}
+                    src={app.screenshot.asset.url}
                     alt={app.title}
                     loading="lazy"
                   />
