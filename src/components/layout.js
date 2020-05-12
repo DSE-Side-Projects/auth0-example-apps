@@ -44,8 +44,8 @@ const Layout = ({ children }) => {
               </Col>
               <Col className="col-6 col-md d-block">
                 <h5>Tools</h5>
-                <ul className="list-unstyled text-small">
-                  <li>
+                <ul className="list-unstyled">
+                  <li className="my-2">
                     <a
                       href="https://manage.auth0.com/#/applications"
                       className="text-dark"
@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
                       Manage Dashboard
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a
                       href="https://github.com/rosnovsky/auth0-example-apps/blob/master/auth0/tenant.yaml"
                       className="text-muted"
@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
                       Download tenant settings
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a
                       href="https://github.com/rosnovsky/auth0-example-apps"
                       className="text-muted"
@@ -69,7 +69,7 @@ const Layout = ({ children }) => {
                       Fork on Github
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a href="https://har.auth0.net" className="text-muted">
                       HAR Inspector
                     </a>
@@ -78,8 +78,8 @@ const Layout = ({ children }) => {
               </Col>
               <Col className="col-6 col-md">
                 <h5>Auth0 Resources</h5>
-                <ul className="list-unstyled text-small">
-                  <li>
+                <ul className="list-unstyled my-2">
+                  <li className="my-2">
                     <a
                       href="https://auth0.com/docs/videos/learn-identity"
                       className="text-dark"
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
                       Learn Identity
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a
                       href="https://auth0.com/docs/videos/get-started/"
                       className="text-muted"
@@ -95,12 +95,12 @@ const Layout = ({ children }) => {
                       Getting Started
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a href="https://support.auth0.com/" className="text-muted">
                       Help & Support
                     </a>
                   </li>
-                  <li>
+                  <li className="my-2">
                     <a href="https://auth0.com/blog/" className="text-muted">
                       Auth0 Blog
                     </a>

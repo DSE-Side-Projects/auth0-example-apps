@@ -11,13 +11,12 @@ import {
 } from "reactstrap"
 import React from "react"
 import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
 
 const AppPage = ({ data }) => {
   const app = data.sanityApp
-  const slug = `app/${app.slug.current}`
 
   return (
     <Layout>
@@ -26,7 +25,6 @@ const AppPage = ({ data }) => {
         <Row className="pb-5">
           <Col className="d-flex mx-auto justify-content-center">
             <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
-              <Link to={slug}>
                 {app.screenshot ? (
                   <CardImg
                     top
@@ -38,12 +36,9 @@ const AppPage = ({ data }) => {
                 ) : (
                   <ProfilePlaceholder type="screenshot" />
                 )}
-              </Link>
               <CardBody>
                 <CardTitle>
-                  <Link to={slug}>
                     <h2>{app.title}</h2>
-                  </Link>
                 </CardTitle>
                 <CardText>{app._rawDescription[0].children[0].text}</CardText>
                 <Row className="mx-auto justify-content-between">

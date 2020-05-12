@@ -12,7 +12,8 @@ import { Link } from "gatsby"
 import { ProfilePlaceholder } from "../pages/profile"
 
 const App = ({ app }) => {
-  const slug = `app/${app.node.slug.current}`
+  const slug = `app/${app.node.slug.current}`;
+  
   return (
     <>
       <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
@@ -20,7 +21,7 @@ const App = ({ app }) => {
           {app.node.screenshot ? (
             <CardImg
               top
-              style={{ minHeight: "200px" }}
+              style={{ width: "100%"}}
               src={app.node.screenshot.asset.url}
               alt={app.node.title}
               loading="lazy"

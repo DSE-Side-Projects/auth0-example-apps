@@ -19,10 +19,10 @@ const Header = ({ siteTitle }) => {
           {siteTitle}
         </Link>
         <Nav className="ml-auto" navbar>
-          <Link to="/" className="my-auto mr-3 text-dark">
+          <Link to="/" className="my-auto mr-5 text-dark">
             Home
           </Link>
-          <Link to="/about" className="my-auto mr-3 text-dark">
+          <Link to="/about" className="my-auto mr-5 text-dark">
             About
           </Link>
           {!isAuthenticated && !loading && (
@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => {
           )}
           {isAuthenticated && (
             <>
-              <Link className="my-auto mr-3 text-black-50" to="/profile">
+              <Link className="my-auto mr-5 text-black-50" to="/profile">
                 My Profile
               </Link>
               <Button onClick={() => logout()}>Log out</Button>

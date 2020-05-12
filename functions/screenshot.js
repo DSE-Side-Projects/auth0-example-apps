@@ -18,35 +18,16 @@ exports.handler = async () => {
   })
   
   docs.result.forEach(async doc => {
-    const SITE_ID = doc.appId;
-    const DEPLOYS_ENDPOINT = `https://api.netlify.com/api/v1/sites/${SITE_ID}/deploys`
+    const SITE_URL = doc.url;
 
-    const response = await fetch(DEPLOYS_ENDPOINT, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${process.env.NETLIFY_API_TOKEN}`,
-      },
-    })
-    let data = await response.json();
-    let lastDeploy = await data[0].id;
-    const screenshot = await fetch(`https://api.netlify.com/api/v1/deploys/${lastDeploy}`, {
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${process.env.NETLIFY_API_TOKEN}`,
-          },
-        })
-    let result = await screenshot.json()
-    if (!result) {
-      throw new Error(
-        'Screenshot is "null". I know, I know, it makes no sense, yet here we are ¯\\_(ツ)_/¯'
-      )
-    }
-  
-    const netlifyScreenshot = await fetch(result.screenshot_url)
-    let screenshotImage = await netlifyScreenshot.arrayBuffer()
-    let buff = await new Buffer.from( new Uint8Array(await screenshotImage)); 
+    const url = `https://api.microlink.io??url=${SITE_URL}&waitFor=5&screenshot=true&meta=false&overlay.browser=dark&overlay.background=%23c1c1c1&embed=screenshot.url`
+    console.log(url)
+
+    const fetchScreenshot = await fetch(url)
+    let screenshotImage = await fetchScreenshot.arrayBuffer()
+    let buff = await new Buffer.from(new Uint8Array(await screenshotImage)); 
     client.assets.upload('image', buff, {
-      filename: `${SITE_ID}-screenshot.png`
+      filename: `${doc.appId}-screenshot.png`
       }).then(imageAsset => {
         const mutations = [{
           patch: {
@@ -75,5 +56,4 @@ exports.handler = async () => {
           .catch(error => new Error(error))
       })
   })
-  
 }
