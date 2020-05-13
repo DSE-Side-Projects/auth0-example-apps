@@ -22,6 +22,7 @@ module.exports = {
       options: {
         projectId: "76jo7qos",
         dataset: "production",
+        useCdn: true,
         token: process.env.MY_SANITY_TOKEN,
       },
     },
