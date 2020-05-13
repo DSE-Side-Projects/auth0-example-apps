@@ -20,8 +20,7 @@ exports.handler = async () => {
   docs.result.forEach(async doc => {
     const SITE_URL = doc.url;
 
-    const url = `https://api.microlink.io??url=${SITE_URL}&waitFor=5&screenshot=true&meta=false&overlay.browser=dark&overlay.background=%23c1c1c1&embed=screenshot.url`
-    console.log(url)
+    const url = `https://api.microlink.io??url=${SITE_URL}&waitFor=5&screenshot=true&meta=true&overlay.browser=light&overlay.background=%23bebebe&embed=screenshot.url`
 
     const fetchScreenshot = await fetch(url)
     let screenshotImage = await fetchScreenshot.arrayBuffer()

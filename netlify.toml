@@ -1,7 +1,10 @@
 [[plugins]]
 package = "netlify-plugin-gatsby-cache"
 
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"
+
 [build]
 base = "/"
 publish = "public"
-command = "npm run build"
+command = "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages"
