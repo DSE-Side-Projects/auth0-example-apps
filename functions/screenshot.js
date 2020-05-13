@@ -14,8 +14,7 @@ exports.handler = async () => {
   const client = sanityClient({
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: 'production',
-    token: process.env.SANITY_API_TOKEN,
-    useCdn: true
+    token: process.env.SANITY_API_TOKEN
   })
   
   docs.result.forEach(async doc => {
