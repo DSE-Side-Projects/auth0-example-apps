@@ -52,7 +52,7 @@ exports.handler = async () => {
           body: JSON.stringify({mutations})
         })
           .then(response => response.json())
-          .then(result => {console.log(result); return ({"body": JSON.stringify(result), "statusCode": 200})})
+          .then(result => ({"body": JSON.stringify(result), "statusCode": 200}))
           .catch(error => new Error(error))
       })
     return { "statusCode": "200" }
