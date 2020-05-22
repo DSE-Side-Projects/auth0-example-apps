@@ -54,10 +54,10 @@ const AppPage = ({ data }) => {
                   </p>
                 </Row>
                 <Row className="mx-auto justify-content-center mb-3">
-                  <a href={app.deploy} className="deploy">
+                  <a href={app.deploy.deploymentUrl + app.github} className="deploy">
                     <img
-                      src="https://www.netlify.com/img/deploy/button.svg"
-                      alt="Deploy to Netlify"
+                      src={app.deploy.button}
+                      alt={`Deploy to ${app.deploy.title}`}
                     />
                   </a>
                 </Row>
@@ -86,7 +86,12 @@ export const data = graphql`
           url
         }
       }
-      appId
+      deploy{
+        title
+        deploymentUrl
+        button
+      }
+      github
       _rawDescription(resolveReferences: { maxDepth: 5 })
       technology {
         title
@@ -102,7 +107,6 @@ export const data = graphql`
       slug {
         current
       }
-      deploy
       quickstart
       docs
       url

@@ -17,7 +17,12 @@ const Home = () => {
                 url
               }
             }
-            appId
+            deploy{
+              title
+              deploymentUrl
+              button
+            }
+            github
             _rawDescription(resolveReferences: { maxDepth: 5 })
             technology {
               title
@@ -28,7 +33,6 @@ const Home = () => {
             slug {
               current
             }
-            deploy
             quickstart
             docs
             url

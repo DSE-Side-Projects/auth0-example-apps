@@ -1,0 +1,44 @@
+{
+  "is_token_endpoint_ip_header_trusted": false,
+  "name": "Java Spring Security Quickstart",
+  "is_first_party": true,
+  "oidc_conformant": true,
+  "sso_disabled": false,
+  "cross_origin_auth": false,
+  "allowed_clients": [],
+  "allowed_logout_urls": [
+    "http://localhost:3000",
+    "https://dse-java-quickstart.herokuapp.com"
+  ],
+  "callbacks": [
+    "http://localhost:3000/callback",
+    "https://dse-java-quickstart.herokuapp.com/callback"
+  ],
+  "native_social_login": {
+    "apple": {
+      "enabled": false
+    },
+    "facebook": {
+      "enabled": false
+    }
+  },
+  "refresh_token": {
+    "rotation_type": "non-rotating",
+    "expiration_type": "non-expiring"
+  },
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  },
+  "client_aliases": [],
+  "token_endpoint_auth_method": "client_secret_post",
+  "app_type": "regular_web",
+  "grant_types": [
+    "authorization_code",
+    "implicit",
+    "refresh_token",
+    "client_credentials"
+  ],
+  "custom_login_page_on": true
+}

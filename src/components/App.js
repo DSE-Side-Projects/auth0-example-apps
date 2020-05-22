@@ -50,10 +50,11 @@ const App = ({ app }) => {
             </p>
           </Row>
           <Row className="mx-auto justify-content-center mb-3">
-            <a href={app.node.deploy} className="deploy">
+            <a href={app.node.deploy.deploymentUrl + app.node.github} className="deploy">
               <img
-                src="https://www.netlify.com/img/deploy/button.svg"
-                alt="Deploy to Netlify"
+                src={app.node.deploy.button}
+                alt={`Deploy to ${app.node.deploy.title}`}
+                title={`Deploy to ${app.node.deploy.title}`}
               />
             </a>
           </Row>

@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "credentials": {
+    "api_key": "YOUR_MAILGUN_API_KEY",
+    "domain": "rosnovsky.us"
+  },
+  "name": "mailgun",
+  "default_from_address": "artem@rosnovsky.us"
+}

@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "script": "./Enrich profile with the locations where the user logs in.js",
+  "name": "Enrich profile with the locations where the user logs in",
+  "order": 4,
+  "stage": "login_success"
+}

@@ -1,0 +1,40 @@
+{
+  "options": {
+    "gist": false,
+    "repo": false,
+    "email": true,
+    "scope": [
+      "user:email"
+    ],
+    "follow": false,
+    "profile": true,
+    "read_org": false,
+    "admin_org": false,
+    "client_id": "15704d116d51e85c02dc",
+    "read_user": false,
+    "write_org": false,
+    "delete_repo": false,
+    "public_repo": false,
+    "repo_status": false,
+    "client_secret": "4de65b97ce09abcac34133f041eda27804233823",
+    "notifications": false,
+    "read_repo_hook": false,
+    "admin_repo_hook": false,
+    "read_public_key": false,
+    "repo_deployment": false,
+    "write_repo_hook": false,
+    "admin_public_key": false,
+    "write_public_key": false
+  },
+  "strategy": "github",
+  "name": "github",
+  "is_domain_connection": false,
+  "enabled_clients": [
+    "Java Spring Security Quickstart",
+    "Spring Data REST Tutorial (Test Application)",
+    "DSE Sample Apps",
+    "Angular SPA",
+    "Vue SPA",
+    "React SPA"
+  ]
+}

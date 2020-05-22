@@ -21,7 +21,11 @@ const createAppPages = async (graphql, actions, reporter) => {
             slug {
               current
             }
-            deploy
+            deploy{
+              title
+              deploymentUrl
+              button
+            }
             quickstart
             docs
             url

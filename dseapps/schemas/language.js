@@ -1,10 +1,10 @@
-import { BsCodeSlash } from "react-icons/bs"
+import { FaLanguage } from "react-icons/fa"
 
 export default {
   name: "language",
   title: "Language",
   type: "document",
-  icon: BsCodeSlash,
+  icon: FaLanguage,
   fields: [
     {
       name: "title",

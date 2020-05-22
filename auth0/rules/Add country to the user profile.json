@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "script": "./Add country to the user profile.js",
+  "name": "Add country to the user profile",
+  "order": 3,
+  "stage": "login_success"
+}

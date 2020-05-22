@@ -17,9 +17,9 @@ export default {
       type: "url",
     },
     {
-      name: "appId",
-      title: "Application Netlify ID",
-      type: "string"
+      name: "github",
+      title: "Github repo",
+      type: "url"
     },
     {
       name: "slug",
@@ -62,8 +62,9 @@ export default {
     },
     {
       name: "deploy",
-      title: "Deploy URL",
-      type: "url",
+      title: "Deployment Service",
+      type: "reference",
+      to: [{ type: "deployment" }],
     },
   ],
   preview: {

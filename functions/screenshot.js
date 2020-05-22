@@ -20,13 +20,14 @@ exports.handler = async () => {
   docs.result.forEach(async doc => {
     const SITE_URL = doc.url;
 
-    const url = `https://api.microlink.io?url=${SITE_URL}&waitFor=5&screenshot=true&meta=false&overlay.browser=light&overlay.background=%23cecece&embed=screenshot.url&nonce=123456`
-
+    const url = `https://api.microlink.io?url=${SITE_URL}&waitFor=3&screenshot=true&meta=false&overlay.browser=light&overlay.background=linear-gradient(225deg%2C%20%23FF057C%200%25%2C%20%238D0B93%2050%25%2C%20%23321575%20100%25)&embed=screenshot.url&nonce=12`;
+    
+    console.log(`Fetching ${url}`)
     const fetchScreenshot = await fetch(url)
     let screenshotImage = await fetchScreenshot.arrayBuffer()
     let buff = await new Buffer.from(new Uint8Array(await screenshotImage)); 
     client.assets.upload('image', buff, {
-      filename: `${doc.appId}-screenshot.png`
+      filename: `${doc._id}-screenshot.png`
       })
       .then(imageAsset => {
         const mutations = [{

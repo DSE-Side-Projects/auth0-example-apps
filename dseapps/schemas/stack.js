@@ -1,10 +1,10 @@
-import { BsCodeSlash } from "react-icons/bs"
+import { MdComputer } from "react-icons/md"
 
 export default {
   name: "stack",
   title: "Stack",
   type: "document",
-  icon: BsCodeSlash,
+  icon: MdComputer,
   fields: [
     {
       name: "title",
