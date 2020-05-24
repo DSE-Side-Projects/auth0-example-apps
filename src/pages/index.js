@@ -44,7 +44,7 @@ export const data = graphql`
               url
             }
           }
-          deploy{
+          deploy {
             title
             deploymentUrl
             button

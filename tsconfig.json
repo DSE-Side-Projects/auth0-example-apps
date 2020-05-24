@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
@@ -11,5 +11,16 @@
     "noUnusedLocals": false,
     "allowJs": true
   },
-  "exclude": ["node_modules", "public", "build", "dist", "react-spa", "vue-spa", "angular-spa", "functions", "auth0", ".cache"]
+  "exclude": [
+    "node_modules",
+    "public",
+    "build",
+    "dist",
+    "react-spa",
+    "vue-spa",
+    "angular-spa",
+    "functions",
+    "auth0",
+    ".cache"
+  ]
 }

@@ -3,7 +3,6 @@ import React from "react"
 import { Navbar, Nav, Button } from "reactstrap"
 import { useAuth0 } from "../utils/auth"
 
-
 const Header = ({ siteTitle }) => {
   const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0()
 

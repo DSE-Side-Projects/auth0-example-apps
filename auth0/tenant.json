@@ -1,7 +1,5 @@
 {
-  "enabled_locales": [
-    "en"
-  ],
+  "enabled_locales": ["en"],
   "flags": {
     "new_universal_login_experience_enabled": true,
     "universal_login": true,
