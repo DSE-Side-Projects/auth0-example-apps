@@ -17,14 +17,16 @@ exports.handler = async () => {
     token: process.env.SANITY_API_TOKEN
   })
   
-  docs.result.forEach(async doc => {
+  const final = docs.result.forEach(async doc => {
     const SITE_URL = doc.url;
 
-    const url = `https://api.microlink.io?url=${SITE_URL}&waitFor=3&screenshot=true&meta=false&overlay.browser=light&overlay.background=linear-gradient(225deg%2C%20%23FF057C%200%25%2C%20%238D0B93%2050%25%2C%20%23321575%20100%25)&embed=screenshot.url&nonce=12`;
+    const url = `https://api.microlink.io?url=${SITE_URL}&screenshot=true&waitFor=1&meta=false&overlay.browser=light&overlay.background=linear-gradient(225deg%2C%20%23FF057C%200%25%2C%20%238D0B93%2050%25%2C%20%23321575%20100%25)&embed=screenshot.url&nonce=123`;
     
     console.log(`Fetching ${url}`)
     const fetchScreenshot = await fetch(url)
+    console.log(`Fetched: ${fetchScreenshot}`)
     let screenshotImage = await fetchScreenshot.arrayBuffer()
+    console.log(`Buffer: ${screenshotImage}`)
     let buff = await new Buffer.from(new Uint8Array(await screenshotImage)); 
     client.assets.upload('image', buff, {
       filename: `${doc._id}-screenshot.png`
@@ -53,9 +55,12 @@ exports.handler = async () => {
           body: JSON.stringify({mutations})
         })
           .then(response => response.json())
-          .then(result => ({"body": JSON.stringify(result), "statusCode": 200}))
+          .then(result => {
+            console.log(result); 
+            return {"body": JSON.stringify(result), "statusCode": 200}
+          })
           .catch(error => new Error(error))
+        })
       })
-    return { "statusCode": "200" }
-  })
+      return { final, "statusCode": "200" }
 }

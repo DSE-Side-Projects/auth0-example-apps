@@ -1,5 +1,4 @@
-// src/react-auth0-spa.js
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, FunctionComponent } from "react"
 import createAuth0Client from "@auth0/auth0-spa-js"
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -10,10 +9,10 @@ const defaultContext = {
   user: null,
   loading: false,
   popupOpen: false,
-  loginWithPopup: () => {},
+  loginWithPopup: (options: any) => {},
   handleRedirectCallback: () => {},
   getIdTokenClaims: () => {},
-  loginWithRedirect: () => {},
+  loginWithRedirect: (options?: any) => {},
   getTokenSilently: () => {},
   getTokenWithPopup: () => {},
   logout: () => {},
@@ -21,20 +20,28 @@ const defaultContext = {
 
 export const Auth0Context = React.createContext(defaultContext)
 export const useAuth0 = () => useContext(Auth0Context)
-export const Auth0Provider = ({
+export const Auth0Provider:FunctionComponent<{
+  initOptions: any, 
+  onRedirectCallback: any, 
+  createAuth0Client: any, 
+  auth0Client: object,
+  domain: string, 
+  client_id: string, 
+  setIsAuthenticated: boolean,
+  loginWithPopup: any }> = ({
   children,
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState()
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>()
   const [user, setUser] = useState()
-  const [auth0Client, setAuth0] = useState({})
+  const [auth0Client, setAuth0] = useState<any>({})
   const [loading, setLoading] = useState(true)
   const [popupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     const initAuth0 = async () => {
-      const auth0FromHook = await createAuth0Client(initOptions)
+      const auth0FromHook: any = await createAuth0Client(initOptions)
       setAuth0(auth0FromHook)
 
       if (
