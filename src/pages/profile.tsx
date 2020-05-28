@@ -1,10 +1,10 @@
 import { Container, Row, Col } from "reactstrap"
-import React from "react"
+import React, { FunctionComponent } from "react"
 import ContentLoader from "react-content-loader"
 import Layout from "../components/layout"
 import { useAuth0 } from "../utils/auth"
 
-const Profile = () => {
+const Profile: FunctionComponent = () => {
   const { loading, user } = useAuth0()
   return (
     <Layout>
@@ -13,7 +13,7 @@ const Profile = () => {
           <Col className="mx-auto my-auto justify-content-center">
             {loading || !user ? (
               <Row className="mx-auto my-3 justify-content-center">
-                <ProfilePlaceholder />
+                <ProfilePlaceholder type="user" />
               </Row>
             ) : (
               <>
@@ -49,7 +49,9 @@ const Profile = () => {
 
 export default Profile
 
-export const ProfilePlaceholder = ({ type }) => {
+export const ProfilePlaceholder: FunctionComponent<{ type: string }> = ({
+  type,
+}) => {
   if (type && type === "screenshot") {
     return (
       <ContentLoader
