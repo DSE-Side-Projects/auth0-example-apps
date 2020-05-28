@@ -1,7 +1,0 @@
-{
-  "enabled": true,
-  "script": "./Default picture for null avatars.js",
-  "name": "Default picture for null avatars",
-  "order": 5,
-  "stage": "login_success"
-}
