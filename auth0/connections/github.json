@@ -3,9 +3,7 @@
     "gist": false,
     "repo": false,
     "email": true,
-    "scope": [
-      "user:email"
-    ],
+    "scope": ["user:email"],
     "follow": false,
     "profile": true,
     "read_org": false,

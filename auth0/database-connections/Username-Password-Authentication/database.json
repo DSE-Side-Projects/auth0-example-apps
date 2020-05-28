@@ -27,9 +27,7 @@
   "strategy": "auth0",
   "name": "Username-Password-Authentication",
   "is_domain_connection": false,
-  "realms": [
-    "Username-Password-Authentication"
-  ],
+  "realms": ["Username-Password-Authentication"],
   "enabled_clients": [
     "Java Spring Security Quickstart",
     "Spring Data REST Tutorial (Test Application)",

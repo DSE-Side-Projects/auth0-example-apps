@@ -25,8 +25,9 @@ const AboutPage = () => {
               Guides, Tutorials and blog posts. We deploy each individual app
               with <a href="https://netlify.com">Netlify</a> with{" "}
               <i>netlify deploy --prod</i>, set DNS to point to the app, and add
-              app's information to <a href="https://sanity.io">Sanity.io</a> (we
-              use it as data store) at our{" "}
+              app&apos;s information to{" "}
+              <a href="https://sanity.io">Sanity.io</a> (we use it as data
+              store) at our{" "}
               <a href="https://dseapps.sanity.studio/desk">Sanity Studio</a>{" "}
               instance we also deploy for this project. With all this said and
               done, we have our main site showcase all the apps we have
@@ -46,9 +47,9 @@ const AboutPage = () => {
             <p>
               We deploy to <a href="https://netlify.com">Netlify</a> — a
               fantastic <a href="https://jamstack.org">JAMstack</a> hosting.
-              It's perfect for single-page apps and static websites. For apps
-              that require a backed server (regular webapps), hosting solution
-              TBD 🤷‍♂️
+              It&apos;s perfect for single-page apps and static websites. For
+              apps that require a backed server (regular webapps), hosting
+              solution TBD 🤷‍♂️
             </p>
             <h3>DSE Sample Apps Site</h3>
             <p>
@@ -59,12 +60,12 @@ const AboutPage = () => {
               is then deployed to <a href="https://netlify.com">Netlify</a> and
               usually is up and running at{" "}
               <a href="https://dse.netlify.app">dse.netlify.app</a> within 1-2
-              minutes. This CI/CD pipeline is already setup and doesn't require
-              any tweaking at this time.
+              minutes. This CI/CD pipeline is already setup and doesn&apos;t
+              require any tweaking at this time.
             </p>
             <h3>Sample Apps</h3>
             <p>
-              Each sample app lives in it's own folder within this project.
+              Each sample app lives in it&apos;s own folder within this project.
               These folders are ignored by Netlify deployment pipeline. Whenever
               a change made to one of the apps, we manually deploy this app with{" "}
               <i>netlify deploy --prod</i> (or <i>netlify deploy</i> if you just
@@ -73,7 +74,7 @@ const AboutPage = () => {
                 Netlify CLI
               </a>
               ). When these changes are committed, no new builds will happen
-              (unless there's an update to the main DSE Sample Apps site)
+              (unless there&apos;s an update to the main DSE Sample Apps site)
             </p>
             <h3>Fun</h3>
             <p>

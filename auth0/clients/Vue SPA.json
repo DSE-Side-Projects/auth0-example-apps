@@ -10,10 +10,7 @@
     "http://localhost:3000",
     "https://vue-spa.rosnovsky.us/"
   ],
-  "callbacks": [
-    "http://localhost:3000",
-    "https://vue-spa.rosnovsky.us/"
-  ],
+  "callbacks": ["http://localhost:3000", "https://vue-spa.rosnovsky.us/"],
   "native_social_login": {
     "apple": {
       "enabled": false
@@ -22,10 +19,7 @@
       "enabled": false
     }
   },
-  "allowed_origins": [
-    "http://localhost:3000",
-    "https://vue-spa.rosnovsky.us/"
-  ],
+  "allowed_origins": ["http://localhost:3000", "https://vue-spa.rosnovsky.us/"],
   "jwt_configuration": {
     "alg": "RS256",
     "lifetime_in_seconds": 36000,
@@ -34,14 +28,7 @@
   "client_aliases": [],
   "token_endpoint_auth_method": "none",
   "app_type": "spa",
-  "grant_types": [
-    "authorization_code",
-    "implicit",
-    "refresh_token"
-  ],
-  "web_origins": [
-    "http://localhost:3000",
-    "https://vue-spa.rosnovsky.us/"
-  ],
+  "grant_types": ["authorization_code", "implicit", "refresh_token"],
+  "web_origins": ["http://localhost:3000", "https://vue-spa.rosnovsky.us/"],
   "custom_login_page_on": true
 }

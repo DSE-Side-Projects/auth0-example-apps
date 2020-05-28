@@ -3,10 +3,7 @@
     "email": true,
     "gmail": false,
     "orkut": false,
-    "scope": [
-      "email",
-      "profile"
-    ],
+    "scope": ["email", "profile"],
     "sites": false,
     "tasks": false,
     "blogger": false,

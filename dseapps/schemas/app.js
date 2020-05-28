@@ -19,7 +19,7 @@ export default {
     {
       name: "github",
       title: "Github repo",
-      type: "url"
+      type: "url",
     },
     {
       name: "slug",

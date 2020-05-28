@@ -25,20 +25,20 @@ const AppPage = ({ data }) => {
         <Row className="pb-5">
           <Col className="d-flex mx-auto justify-content-center">
             <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
-                {app.screenshot ? (
-                  <CardImg
-                    top
-                    style={{ minHeight: "200px" }}
-                    src={app.screenshot.asset.url}
-                    alt={app.title}
-                    loading="lazy"
-                  />
-                ) : (
-                  <ProfilePlaceholder type="screenshot" />
-                )}
+              {app.screenshot ? (
+                <CardImg
+                  top
+                  style={{ minHeight: "200px" }}
+                  src={app.screenshot.asset.url}
+                  alt={app.title}
+                  loading="lazy"
+                />
+              ) : (
+                <ProfilePlaceholder type="screenshot" />
+              )}
               <CardBody>
                 <CardTitle>
-                    <h2>{app.title}</h2>
+                  <h2>{app.title}</h2>
                 </CardTitle>
                 <CardText>{app._rawDescription[0].children[0].text}</CardText>
                 <Row className="mx-auto justify-content-between">
@@ -54,7 +54,10 @@ const AppPage = ({ data }) => {
                   </p>
                 </Row>
                 <Row className="mx-auto justify-content-center mb-3">
-                  <a href={app.deploy.deploymentUrl + app.github} className="deploy">
+                  <a
+                    href={app.deploy.deploymentUrl + app.github}
+                    className="deploy"
+                  >
                     <img
                       src={app.deploy.button}
                       alt={`Deploy to ${app.deploy.title}`}
@@ -86,7 +89,7 @@ export const data = graphql`
           url
         }
       }
-      deploy{
+      deploy {
         title
         deploymentUrl
         button

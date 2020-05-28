@@ -17,7 +17,7 @@ const Home = () => {
                 url
               }
             }
-            deploy{
+            deploy {
               title
               deploymentUrl
               button
