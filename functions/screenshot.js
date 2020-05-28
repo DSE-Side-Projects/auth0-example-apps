@@ -47,31 +47,27 @@ var documentArray = function () { return __awaiter(_this, void 0, void 0, functi
     var docs;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.time("Sanity Docs Fetch");
-                return [4 /*yield*/, fetchData("https://" + process.env.SANITY_PROJECT_ID + ".api.sanity.io/v1/data/query/production?query=*[_type == \"app\"]", {
-                        method: "get",
-                        headers: {
-                            "Content-type": "application/json",
-                            Authorization: "Bearer " + process.env.SANITY_API_TOKEN
-                        }
-                    })
-                        .then(function (response) { return response.json(); })
-                        .then(function (result) { return result.result; })];
+            case 0: return [4 /*yield*/, fetchData("https://" + process.env.SANITY_PROJECT_ID + ".api.sanity.io/v1/data/query/production?query=*[_type == \"app\"]", {
+                    method: "get",
+                    headers: {
+                        "Content-type": "application/json",
+                        Authorization: "Bearer " + process.env.SANITY_API_TOKEN
+                    }
+                })
+                    .then(function (response) { return response.json(); })
+                    .then(function (result) { return result.result; })];
             case 1:
                 docs = _a.sent();
-                console.timeEnd("Sanity Docs Fetch");
                 return [2 /*return*/, docs];
         }
     });
 }); };
 exports.handler = function () { return __awaiter(_this, void 0, void 0, function () {
-    var documents, _loop_1, i, state_1;
+    var responseBodyArray, documents, _loop_1, i, state_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.time("Handler Function");
-                console.log("Start");
+                responseBodyArray = [];
                 return [4 /*yield*/, documentArray()];
             case 1:
                 documents = _a.sent();
@@ -80,27 +76,25 @@ exports.handler = function () { return __awaiter(_this, void 0, void 0, function
                     return __generator(this, function (_d) {
                         switch (_d.label) {
                             case 0:
-                                console.log("For cycle");
                                 doc = documents[i];
                                 SITE_URL = doc.url;
-                                url = "https://api.apiflash.com/v1/urltoimage?access_key=7f3eb66149a5493abd0711522577c96b&delay=2&format=jpeg&quality=85&response_type=image&transparent=true&url=" + SITE_URL + "&width=1080";
+                                url = "https://api.apiflash.com/v1/urltoimage?access_key=7f3eb66149a5493abd0711522577c96b&format=jpeg&quality=85&response_type=image&transparent=true&url=" + SITE_URL + "&width=1080";
                                 return [4 /*yield*/, fetchData(url)];
                             case 1:
                                 fetchScreenshot = _d.sent();
                                 return [4 /*yield*/, fetchScreenshot];
                             case 2:
                                 data = _d.sent();
-                                if (!(data.status === 429)) return [3 /*break*/, 3];
+                                if (!(data.status !== 200)) return [3 /*break*/, 3];
                                 resetTimestamp = data.headers.get("x-rate-limit-reset");
                                 resetTime = new Date(resetTimestamp * 1000).toLocaleString();
                                 errorMessage = {
                                     error: data.statusText,
                                     rateLimitResetTime: resetTime
                                 };
-                                console.log("End Handler Function");
-                                return [2 /*return*/, { value: { body: JSON.stringify(errorMessage), statusCode: "429" } }];
+                                return [2 /*return*/, { value: { body: JSON.stringify(errorMessage), statusCode: "500" } }];
                             case 3:
-                                console.log("Fetching image");
+                                responseBodyArray.push(doc._id);
                                 return [4 /*yield*/, data.arrayBuffer()];
                             case 4:
                                 screenshotImage = _d.sent();
@@ -110,13 +104,11 @@ exports.handler = function () { return __awaiter(_this, void 0, void 0, function
                             case 5: return [4 /*yield*/, _b.apply(_a, [new (_c.apply(Uint8Array, [void 0, _d.sent()]))()])];
                             case 6:
                                 buff = _d.sent();
-                                console.log("Fetching image end");
                                 client.assets
                                     .upload("image", buff, {
                                     filename: doc._id + "-screenshot.png"
                                 })
                                     .then(function (imageAsset) {
-                                    console.time("Image Upload");
                                     var mutations = [
                                         {
                                             patch: {
@@ -133,7 +125,7 @@ exports.handler = function () { return __awaiter(_this, void 0, void 0, function
                                             }
                                         },
                                     ];
-                                    return fetchData("https://" + process.env.SANITY_PROJECT_ID + ".api.sanity.io/v1/data/mutate/production", {
+                                    fetchData("https://" + process.env.SANITY_PROJECT_ID + ".api.sanity.io/v1/data/mutate/production", {
                                         method: "post",
                                         headers: {
                                             "Content-type": "application/json",
@@ -143,9 +135,7 @@ exports.handler = function () { return __awaiter(_this, void 0, void 0, function
                                     })
                                         .then(function (response) { return response.json(); })
                                         .then(function (result) {
-                                        console.timeEnd("Image Upload");
-                                        console.log({ body: JSON.stringify(result), statusCode: "200" });
-                                        console.timeEnd("For cycle");
+                                        responseBodyArray.push(result);
                                     });
                                 });
                                 _d.label = 7;
@@ -167,9 +157,8 @@ exports.handler = function () { return __awaiter(_this, void 0, void 0, function
                 i++;
                 return [3 /*break*/, 2];
             case 5:
-                console.log("End");
-                console.timeEnd("Handler Function");
-                return [2 /*return*/];
+                console.log(responseBodyArray);
+                return [2 /*return*/, { body: JSON.stringify(responseBodyArray), statusCode: "200" }];
         }
     });
 }); };
