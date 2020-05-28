@@ -1,7 +1,0 @@
-{
-  "enabled": true,
-  "script": "./Link Accounts with Same Email Address.js",
-  "name": "Link Accounts with Same Email Address",
-  "order": 1,
-  "stage": "login_success"
-}
