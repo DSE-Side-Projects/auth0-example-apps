@@ -59,7 +59,7 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "predeploy": "yarn format && yarn lint && yarn type-check",
+    "predeploy": "yarn format && yarn lint && yarn type-check && yarn badges",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -68,7 +68,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
     "type-check": "tsc --noEmit",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix"
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "badges": "npx lighthouse-badges --urls https://dse.netlify.app -o badges"
   },
   "repository": {
     "type": "git",
