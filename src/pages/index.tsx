@@ -1,14 +1,15 @@
 import React from "react"
-import Apps from "../components/Apps"
 import { Container, Row, Col } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { ContentPlaceholder } from "../components/Apps"
+import ApplicationsComponent, {
+  ContentPlaceholder,
+} from "../components/Applications"
 
 import { graphql } from "gatsby"
 
-const IndexPage = ({ data }) => {
-  const apps = data.allSanityApp.edges
+const IndexPage = ({ data }: IApplications) => {
+  const allApps = data.allSanityApp.edges
 
   return (
     <Layout>
@@ -16,13 +17,12 @@ const IndexPage = ({ data }) => {
       <Container fluid="true" className="container-fluid px-auto mx-auto">
         <Row className="pb-5">
           <Col className="d-flex mx-auto justify-content-center">
-            {data && apps ? (
-              <Apps apps={apps} />
+            {data && allApps ? (
+              <ApplicationsComponent data={data} />
             ) : (
-              <ContentPlaceholder
-                className="mx-auto my-auto"
-                title="Hm... This is impossible 🤔"
-              />
+              <div className="mx-auto my-auto">
+                <ContentPlaceholder />
+              </div>
             )}
           </Col>
         </Row>

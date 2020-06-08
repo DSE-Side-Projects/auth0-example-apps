@@ -1,22 +1,22 @@
 import { Row } from "reactstrap"
-import App from "./App"
+import Application from "./Application"
 import ContentLoader from "react-content-loader"
 import React from "react"
 
-const Apps = ({ apps }) => {
-  if (!apps || apps === undefined) {
+const Applications = (data: IApplications) => {
+  if (data.data.allSanityApp === undefined) {
     return <ContentPlaceholder />
   }
   return (
     <Row className="mx-auto" style={{ width: 90 + "%" }}>
-      {apps.map((app) => (
-        <App app={app} key={app.node.slug.current} />
+      {data.data.allSanityApp.edges.map((app: IApplicationNode) => (
+        <Application node={app.node} key={app.node.slug.current} />
       ))}
     </Row>
   )
 }
 
-export default Apps
+export default Applications
 
 export const ContentPlaceholder = () => {
   return (

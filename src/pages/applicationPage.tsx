@@ -15,8 +15,8 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
 
-const AppPage = ({ data }) => {
-  const app = data.sanityApp
+const AppPage = (node) => {
+  const app: IApplication = node.data.sanityApp
 
   return (
     <Layout>
@@ -32,6 +32,8 @@ const AppPage = ({ data }) => {
                   src={app.screenshot.asset.url}
                   alt={app.title}
                   loading="lazy"
+                  width="382px"
+                  height="382px"
                 />
               ) : (
                 <ProfilePlaceholder type="screenshot" />

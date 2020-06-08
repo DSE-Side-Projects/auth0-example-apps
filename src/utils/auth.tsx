@@ -29,7 +29,10 @@ export const Auth0Provider: FunctionComponent<{
   initOptions: any
   onRedirectCallback: any
   createAuth0Client: any
-  auth0Client: Record<string, unknown>
+  auth0Client: {
+    name: string
+    version: string
+  }
   domain: string
   client_id: string
   loginWithPopup: any

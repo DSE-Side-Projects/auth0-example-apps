@@ -1,26 +1,17 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
     "strict": false,
     "noEmit": true,
+    "sourceMap": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "allowJs": true
   },
-  "exclude": [
-    "node_modules",
-    "public",
-    "build",
-    "dist",
-    "react-spa",
-    "vue-spa",
-    "angular-spa",
-    "functions",
-    "auth0",
-    ".cache"
-  ]
+  "exclude": ["node_modules", "public"]
 }

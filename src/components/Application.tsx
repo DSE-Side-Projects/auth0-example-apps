@@ -11,8 +11,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { ProfilePlaceholder } from "../pages/profile"
 
-const App = ({ app }) => {
-  const slug = `app/${app.node.slug.current}`
+const Application = (app: IApplicationNode) => {
+  const slug = `/app/${app.node.slug.current}`
 
   return (
     <>
@@ -25,6 +25,8 @@ const App = ({ app }) => {
               src={app.node.screenshot.asset.url}
               alt={app.node.title}
               loading="lazy"
+              width="382px"
+              height="382px"
             />
           ) : (
             <ProfilePlaceholder type="screenshot" />
@@ -72,4 +74,4 @@ const App = ({ app }) => {
   )
 }
 
-export default App
+export default Application

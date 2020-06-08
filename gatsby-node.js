@@ -44,7 +44,7 @@ const createAppPages = async (graphql, actions, reporter) => {
     const path = `/app/${edge.node.slug.current}`
     createPage({
       path,
-      component: require.resolve("./src/pages/app.js"),
+      component: require.resolve("./src/pages/applicationPage.tsx"),
       context: { id: edge.node._id },
     })
   })

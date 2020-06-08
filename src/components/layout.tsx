@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Container, Row, Col } from "reactstrap"
-import logo from "../images/auth0-logo-forlightbg.png"
+import * as logo from "../images/auth0-logo-forlightbg.png"
 
 import Header from "./header"
 
