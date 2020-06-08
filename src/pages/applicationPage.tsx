@@ -15,12 +15,12 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
 
-const AppPage = (node) => {
-  const app: IApplication = node.data.sanityApp
+const AppPage = (node: IApplication) => {
+  const app = node.data.sanityApp
 
   return (
     <Layout>
-      <SEO title={app.title} />
+      <SEO lang="en" title={app.title} />
       <Container fluid="true" className="container-fluid px-auto mx-auto">
         <Row className="pb-5">
           <Col className="d-flex mx-auto justify-content-center">
@@ -29,7 +29,7 @@ const AppPage = (node) => {
                 <CardImg
                   top
                   style={{ minHeight: "200px" }}
-                  src={app.screenshot.asset.url}
+                  src={app.screenshot.asset.fluid.src}
                   alt={app.title}
                   loading="lazy"
                   width="382px"
@@ -88,7 +88,9 @@ export const data = graphql`
       title
       screenshot {
         asset {
-          url
+          fluid(maxHeight: 382, maxWidth: 382) {
+            src
+          }
         }
       }
       deploy {

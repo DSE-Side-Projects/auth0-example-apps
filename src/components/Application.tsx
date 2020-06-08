@@ -13,6 +13,7 @@ import { ProfilePlaceholder } from "../pages/profile"
 
 const Application = (app: IApplicationNode) => {
   const slug = `/app/${app.node.slug.current}`
+  console.log(app.node.screenshot.asset.fluid.src)
 
   return (
     <>
@@ -22,7 +23,7 @@ const Application = (app: IApplicationNode) => {
             <CardImg
               top
               style={{ width: "100%" }}
-              src={app.node.screenshot.asset.url}
+              src={app.node.screenshot.asset.fluid.src}
               alt={app.node.title}
               loading="lazy"
               width="382px"

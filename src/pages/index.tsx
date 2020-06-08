@@ -41,7 +41,9 @@ export const data = graphql`
           title
           screenshot {
             asset {
-              url
+              fluid(maxHeight: 382, maxWidth: 382) {
+                src
+              }
             }
           }
           deploy {
