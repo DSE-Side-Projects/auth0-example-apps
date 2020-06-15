@@ -17,14 +17,14 @@ const defaultContext = {
   loginWithPopup: () => {},
   handleRedirectCallback: () => {},
   getIdTokenClaims: () => {},
-  loginWithRedirect: (options?: any) => {},
+  loginWithRedirect: () => {},
   getTokenSilently: () => {},
   getTokenWithPopup: () => {},
   logout: () => {},
 }
 
 export const Auth0Context = React.createContext(defaultContext)
-export const useAuth0 = () => useContext(Auth0Context)
+export const useAuth0: any = () => useContext(Auth0Context)
 export const Auth0Provider: FunctionComponent<{
   initOptions: any
   onRedirectCallback: any

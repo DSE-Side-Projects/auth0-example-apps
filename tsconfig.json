@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "esnext",
-    "jsx": "preserve",
+    "target": "ES2019",
+    "jsx": "react",
     "lib": ["dom", "esnext"],
     "strict": false,
     "noEmit": true,
     "sourceMap": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "allowJs": true
+    "allowJs": true,
   },
-  "exclude": ["node_modules", "public", "cypress"]
+  "exclude": ["node_modules", "public"]
 }

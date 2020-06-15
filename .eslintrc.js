@@ -9,37 +9,31 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: "latest",
+      version: "detect",
     },
   },
   env: {
     browser: true,
     node: true,
     es6: true,
+    jest: true,
   },
-  plugins: ["@typescript-eslint", "react", "import"],
+  plugins: ["@typescript-eslint", "react"],
   parserOptions: {
     ecmaFeatures: {
-      modules: true,
       jsx: true,
     },
-    ecmaVersion: 6, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: "module", // Allows for the use of imports
   },
   rules: {
     "react/prop-types": "off", // Disable prop-types as we use TypeScript for type checking
     "@typescript-eslint/explicit-function-return-type": "off",
-
-    // The following rules are temporary. They are required to get linting started with Typescript and will be removed eventually
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-empty-function": "off",
   },
   overrides: [
     // Override some TypeScript rules just for .js files
     {
-      files: ["*.js", "*.ts", "*.tsx"],
+      files: ["*.js"],
       rules: {
         "@typescript-eslint/no-var-requires": "off", //
       },
