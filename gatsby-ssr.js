@@ -5,8 +5,3 @@
  */
 
 // You can delete this file if you're not using it
-const tracer = require("ls-trace").init({
-  experimental: {
-    b3: true,
-  },
-})
