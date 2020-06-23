@@ -1,9 +1,9 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "baseUrl" : "./",
+    "baseUrl": "./",
     "paths": {
-        "*" : ["./node_modules/@types/*", "*"]
+      "*": ["./node_modules/@types/*", "*"]
     },
     "module": "commonjs",
     // "baseUrl": "./src",

@@ -24,7 +24,7 @@ const AppPage = (node: IApplication) => {
       <Container fluid="true" className="container-fluid px-auto mx-auto">
         <Row className="pb-5">
           <Col className="d-flex mx-auto justify-content-center">
-            <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
+            <Card style={{ width: 36 + "rem" }} className="mx-auto mt-5">
               {app.screenshot ? (
                 <CardImg
                   top
