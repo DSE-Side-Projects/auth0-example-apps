@@ -1,4 +1,3 @@
-import { Row } from "reactstrap"
 import Application from "./Application"
 import ContentLoader from "react-content-loader"
 import React from "react"
@@ -8,11 +7,11 @@ const Applications = (data: IApplications) => {
     return <ContentPlaceholder />
   }
   return (
-    <Row className="mx-auto" style={{ width: 90 + "%" }}>
+    <div className="flex flex-wrap min-w-xl justify-between px-4 py-2">
       {data.data.allSanityApp.edges.map((app: IApplicationNode) => (
         <Application node={app.node} key={app.node.slug.current} />
       ))}
-    </Row>
+    </div>
   )
 }
 

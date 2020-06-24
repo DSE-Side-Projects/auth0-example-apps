@@ -7,17 +7,17 @@ const Header = ({ siteTitle }) => {
 
   return (
     <>
-      <nav className="flex flex-wrap items-center justify-between p-4">
+      <nav className="flex flex-wrap items-center justify-between bg-gray-200  p-4">
         <div className="flex flex-shrink-0 mr-6">
-          <a className="text-xl text-indigo-500 font-semibold" href="#">
+          <Link className="text-xl text-black-500 font-semibold" to="/">
             <img
               src="https://cdn.auth0.com/website/press/resources/auth0-logo-monotone-black.svg"
               className="float-left mr-2"
               width="80px"
               alt="Auth0 logo"
             />
-          </a>
-          <Link to="/">{siteTitle}</Link>
+            {siteTitle}
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button className="navbar-burger flex items-center py-2 px-3 text-indigo-500 rounded border border-indigo-500">
@@ -33,38 +33,39 @@ const Header = ({ siteTitle }) => {
         </div>
         <div className="navbar-menu hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
           <div className="lg:ml-auto">
-            <a
-              className="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700"
-              href="#"
+            <Link
+              className="block lg:inline-block py-3 px-5 mr-4 text-blue-900 hover:text-blue-700"
+              to="/about"
             >
-              Products
-            </a>
-            <a
-              className="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700"
-              href="#"
-            >
-              Team
-            </a>
-            <a
-              className="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700"
-              href="#"
-            >
-              Customers
-            </a>
+              About
+            </Link>
           </div>
           <div>
-            <a
-              className="inline-block py-3 px-5 mr-4 leading-none text-center text-blue-700 bg-indigo-100 hover:bg-indigo-200 rounded shadow"
-              href="#"
-            >
-              Sign in
-            </a>
-            <a
-              className="inline-block py-3 px-6 mt-4 lg:mt-0 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow"
-              href="#"
-            >
-              Sign up
-            </a>
+            {!isAuthenticated && !loading && (
+              <button
+                className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 duration-200 hover:text-white rounded shadow "
+                onClick={() =>
+                  loginWithRedirect({
+                    appState: `${window.location.pathname}`,
+                  })
+                }
+              >
+                Sign in
+              </button>
+            )}
+            {isAuthenticated && (
+              <>
+                <Link className="my-auto mr-5 text-black-50" to="/profile">
+                  My Profile
+                </Link>
+                <button
+                  className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 hover:text-white rounded shadow"
+                  onClick={() => logout()}
+                >
+                  Log out
+                </button>
+              </>
+            )}
           </div>
         </div>
       </nav>

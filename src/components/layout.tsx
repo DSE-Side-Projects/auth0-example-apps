@@ -1,6 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import * as logo from "../images/auth0-logo-forlightbg.png"
+import shareIcon from "../placeholders/icons/share.svg"
+import starIcon from "../placeholders/icons/star.svg"
 
 import Header from "./header"
 
@@ -23,52 +25,46 @@ const Layout = ({ children }) => {
         <footer>
           <div className="flex flex-wrap items-center py-4 px-4 border-b">
             <div className="w-full lg:w-1/5 text-center lg:text-left">
-              <a className="text-xl text-indigo-500 font-semibold" href="#">
-                Dunder Mifflin
-              </a>
+              <Link className="text-xl text-indigo-500 font-semibold" to="/">
+                <img
+                  src={logo}
+                  className="float-left mr-2"
+                  width="80px"
+                  alt="Auth0 logo"
+                />
+              </Link>
             </div>
 
             <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
               <a
-                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
                 href="#"
               >
-                Products
+                Home
               </a>
               <a
-                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
                 href="#"
               >
-                Team
+                About
               </a>
               <a
-                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
                 href="#"
               >
-                Customers
-              </a>
-              <a
-                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
-                href="#"
-              >
-                Blog
+                Learn Identity
               </a>
             </div>
 
             <div className="flex justify-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
               <img
-                className="w-6 h-6"
-                src="placeholders/icons/message.svg"
-                alt=""
-              />
-              <img
                 className="w-6 h-6 mx-8"
-                src="placeholders/icons/share.svg"
+                src={shareIcon}
                 alt=""
               />
               <img
                 className="w-6 h-6"
-                src="placeholders/icons/star.svg"
+                src={starIcon}
                 alt=""
               />
             </div>
@@ -77,18 +73,7 @@ const Layout = ({ children }) => {
           <div className="py-4 text-center">
             <span className="block md:inline-block mb-4 md:mb-0 mx-3"></span>
             <p className="mt-2">Identity is complex. Deal with it.</p>
-            <a
-              className="inline-block mx-4 text-blue-900 hover:text-blue-700"
-              href="#"
-            >
-              Privacy Policy
-            </a>
-            <a
-              className="inline-block mx-4 text-blue-900 hover:text-blue-700"
-              href="#"
-            >
-              Term of Service
-            </a>
+            <p>© 2020</p>
           </div>
         </footer>
       </div>

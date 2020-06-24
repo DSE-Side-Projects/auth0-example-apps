@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "reactstrap"
 import React, { FunctionComponent } from "react"
 import ContentLoader from "react-content-loader"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { useAuth0 } from "../utils/auth"
 
 const Profile: FunctionComponent = () => {
@@ -54,31 +54,35 @@ export const ProfilePlaceholder: FunctionComponent<{ type: string }> = ({
 }) => {
   if (type && type === "screenshot") {
     return (
-      <ContentLoader
-        speed={3}
-        width={382}
-        height={238}
-        viewBox="0 0 382 238"
-        backgroundColor="RGBA(0, 86, 179, 0.1)"
-        foregroundColor="RGBA(0, 86, 179, 0.2)"
-      >
-        <rect x="0" y="0" rx="1" ry="1" width="382" height="238" />
-      </ContentLoader>
+      <div className="w-full">
+        <ContentLoader
+          speed={3}
+          width={382}
+          height={238}
+          viewBox="0 0 382 238"
+          backgroundColor="RGBA(0, 86, 179, 0.1)"
+          foregroundColor="RGBA(0, 86, 179, 0.2)"
+        >
+          <rect x="0" y="0" rx="1" ry="1" width="382" height="238" />
+        </ContentLoader>
+      </div>
     )
   }
   return (
-    <ContentLoader
-      speed={2}
-      width={600}
-      height={300}
-      viewBox="0 0 600 300"
-      backgroundColor="RGBA(0, 86, 179, 0.1)"
-      foregroundColor="RGBA(0, 86, 179, 0.2)"
-    >
-      <rect x="50" y="250" rx="3" ry="3" width="500" height="6" />
-      <rect x="50" y="272" rx="3" ry="3" width="430" height="6" />
-      <rect x="50" y="288" rx="3" ry="3" width="480" height="6" />
-      <circle cx="300" cy="110" r="100" />
-    </ContentLoader>
+    <div className="w-full">
+      <ContentLoader
+        speed={2}
+        width={600}
+        height={300}
+        viewBox="0 0 600 300"
+        backgroundColor="RGBA(0, 86, 179, 0.1)"
+        foregroundColor="RGBA(0, 86, 179, 0.2)"
+      >
+        <rect x="50" y="250" rx="3" ry="3" width="500" height="6" />
+        <rect x="50" y="272" rx="3" ry="3" width="430" height="6" />
+        <rect x="50" y="288" rx="3" ry="3" width="480" height="6" />
+        <circle cx="300" cy="110" r="100" />
+      </ContentLoader>
+    </div>
   )
 }

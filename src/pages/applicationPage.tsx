@@ -1,17 +1,6 @@
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Row,
-  Button,
-  Container,
-  Col,
-} from "reactstrap"
 import React from "react"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
 
@@ -21,61 +10,54 @@ const AppPage = (node: IApplication) => {
   return (
     <Layout>
       <SEO lang="en" title={app.title} />
-      <Container fluid="true" className="container-fluid px-auto mx-auto">
-        <Row className="pb-5">
-          <Col className="d-flex mx-auto justify-content-center">
-            <Card style={{ width: 36 + "rem" }} className="mx-auto mt-5">
-              {app.screenshot ? (
-                <CardImg
-                  top
-                  style={{ minHeight: "200px" }}
-                  src={app.screenshot.asset.fluid.src}
-                  alt={app.title}
-                  loading="lazy"
-                  width="382px"
-                  height="382px"
-                />
-              ) : (
-                <ProfilePlaceholder type="screenshot" />
-              )}
-              <CardBody>
-                <CardTitle>
-                  <h2>{app.title}</h2>
-                </CardTitle>
-                <CardText>{app._rawDescription[0].children[0].text}</CardText>
-                <Row className="mx-auto justify-content-between">
-                  <p>
-                    <a href={app.quickstart} className="text-muted">
-                      Quickstart
-                    </a>
-                  </p>
-                  <p>
-                    <a href={app.docs} className="text-muted">
-                      Docs
-                    </a>
-                  </p>
-                </Row>
-                <Row className="mx-auto justify-content-center mb-3">
-                  <a
-                    href={app.deploy.deploymentUrl + app.github}
-                    className="deploy"
-                  >
-                    <img
-                      src={app.deploy.button}
-                      alt={`Deploy to ${app.deploy.title}`}
-                    />
-                  </a>
-                </Row>
-                <Row className="mx-auto justify-content-center mb-3">
-                  <Button className="btn-block btn-light" href={app.url}>
-                    {app.title} &rarr;
-                  </Button>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-4">
+        {app.screenshot ? (
+          <img
+            className="w-full mb-2"
+            src={app.screenshot.asset.fluid.src}
+            alt={app.title}
+            loading="lazy"
+          />
+        ) : (
+          <ProfilePlaceholder type="screenshot" />
+        )}
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2 text-orange-900">
+            <h2 className="text-2xl">{app.title}</h2>
+          </div>
+          <div className="text-gray-700 my-4 leading-relaxed tracking-wide antialiased sm:subpixel-antialiased md:antialiased lg:subpixel-antialiased xl:antialiased">
+            {app._rawDescription[0].children[0].text}
+          </div>
+          <div className="flex justify-between my-6">
+            <p>
+              <a href={app.quickstart} className="text-gray-600">
+                Quickstart
+              </a>
+            </p>
+            <p>
+              <a href={app.docs} className="text-gray-600">
+                Docs
+              </a>
+            </p>
+          </div>
+          <div className="flex justify-center mt-5">
+            <a href={app.deploy.deploymentUrl + app.github} className="deploy">
+              <img
+                src={app.deploy.button}
+                alt={`Deploy to ${app.deploy.title}`}
+                title={`Deploy to ${app.deploy.title}`}
+              />
+            </a>
+          </div>
+          <div className="flex justify-center">
+            <a href={app.url} className="w-full">
+              <button className=" bg-white w-full hover:bg-orange-900 hover:text-white duration-200 text-gray-800 font-semibold py-2 px-4 my-8 border hover:border-orange-900 border-gray-100 rounded shadow">
+                {app.title} &rarr;
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -88,7 +70,7 @@ export const data = graphql`
       title
       screenshot {
         asset {
-          fluid(maxHeight: 382, maxWidth: 382) {
+          fluid(maxHeight: 800, maxWidth: 800) {
             src
           }
         }

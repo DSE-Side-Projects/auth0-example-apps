@@ -3,6 +3,11 @@ declare module "*.png" {
   export = value
 }
 
+declare module "*.svg" {
+  const content: any
+  export default content
+}
+
 interface Deploy {
   title: string
   deploymentUrl: string

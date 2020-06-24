@@ -1,12 +1,3 @@
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Row,
-  Button,
-} from "reactstrap"
 import React from "react"
 import { Link } from "gatsby"
 import { ProfilePlaceholder } from "../pages/profile"
@@ -17,42 +8,41 @@ const Application = (app: IApplicationNode) => {
 
   return (
     <>
-      <Card style={{ width: 24 + "rem" }} className="mx-auto mt-5">
+      <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-4">
         <Link to={slug}>
           {app.node.screenshot ? (
-            <CardImg
-              top
-              style={{ width: "100%" }}
+            <img
+              className="w-full mb-2"
               src={app.node.screenshot.asset.fluid.src}
               alt={app.node.title}
               loading="lazy"
-              width="382px"
-              height="382px"
             />
           ) : (
             <ProfilePlaceholder type="screenshot" />
           )}
         </Link>
-        <CardBody>
-          <CardTitle>
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2 text-orange-900">
             <Link to={slug}>
-              <h2>{app.node.title}</h2>
+              <h2 className="text-2xl">{app.node.title}</h2>
             </Link>
-          </CardTitle>
-          <CardText>{app.node._rawDescription[0].children[0].text}</CardText>
-          <Row className="mx-auto justify-content-between">
+          </div>
+          <div className="text-gray-700 my-4 leading-relaxed tracking-wide antialiased sm:subpixel-antialiased md:antialiased lg:subpixel-antialiased xl:antialiased">
+            {app.node._rawDescription[0].children[0].text}
+          </div>
+          <div className="flex justify-between my-6">
             <p>
-              <a href={app.node.quickstart} className="text-muted">
+              <a href={app.node.quickstart} className="text-gray-600">
                 Quickstart
               </a>
             </p>
             <p>
-              <a href={app.node.docs} className="text-muted">
+              <a href={app.node.docs} className="text-gray-600">
                 Docs
               </a>
             </p>
-          </Row>
-          <Row className="mx-auto justify-content-center mb-3">
+          </div>
+          <div className="flex justify-center mt-5">
             <a
               href={app.node.deploy.deploymentUrl + app.node.github}
               className="deploy"
@@ -63,14 +53,16 @@ const Application = (app: IApplicationNode) => {
                 title={`Deploy to ${app.node.deploy.title}`}
               />
             </a>
-          </Row>
-          <Row className="mx-auto justify-content-center mb-3">
-            <Button className="btn-block btn-light" href={app.node.url}>
-              {app.node.title} &rarr;
-            </Button>
-          </Row>
-        </CardBody>
-      </Card>
+          </div>
+          <div className="flex justify-center">
+            <a href={app.node.url} className="w-full">
+              <button className=" bg-white w-full hover:bg-orange-900 hover:text-white duration-200 text-gray-800 font-semibold py-2 px-4 my-8 border hover:border-orange-900 border-gray-100 rounded shadow">
+                {app.node.title} &rarr;
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
