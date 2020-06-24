@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container, Row, Col } from "reactstrap"
 import * as logo from "../images/auth0-logo-forlightbg.png"
 
 import Header from "./header"
@@ -19,105 +18,78 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 1460,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div className="container mx-auto px-4">
         <main>{children}</main>
         <footer>
-          <Container className="pt-4 my-md-5 pt-md-5 border-top">
-            <Row className="container container-fluid mx-auto">
-              <Col className="col-12 col-md">
-                <a className="mx-auto mb-2" href="https://auth0.com">
-                  <img
-                    loading="lazy"
-                    src={logo}
-                    width="50px"
-                    alt="Auth0 Logo"
-                  />
-                </a>
-                <p className="mt-2">Identity is complex. Deal with it.</p>
-              </Col>
-              <Col className="col-6 col-md d-block">
-                <h5>Tools</h5>
-                <ul className="list-unstyled">
-                  <li className="my-2">
-                    <a
-                      href="https://manage.auth0.com/#/applications"
-                      className="text-dark"
-                    >
-                      Manage Dashboard
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a
-                      href="https://github.com/rosnovsky/auth0-example-apps/blob/master/auth0/tenant.yaml"
-                      className="text-muted"
-                    >
-                      Download tenant settings
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a
-                      href="https://github.com/rosnovsky/auth0-example-apps"
-                      className="text-muted"
-                    >
-                      Fork on Github
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a href="https://har.auth0.net" className="text-muted">
-                      HAR Inspector
-                    </a>
-                  </li>
-                </ul>
-              </Col>
-              <Col className="col-6 col-md">
-                <h5>Auth0 Resources</h5>
-                <ul className="list-unstyled my-2">
-                  <li className="my-2">
-                    <a
-                      href="https://auth0.com/docs/videos/learn-identity"
-                      className="text-dark"
-                    >
-                      Learn Identity
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a
-                      href="https://auth0.com/docs/videos/get-started/"
-                      className="text-muted"
-                    >
-                      Getting Started
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a href="https://support.auth0.com/" className="text-muted">
-                      Help & Support
-                    </a>
-                  </li>
-                  <li className="my-2">
-                    <a href="https://auth0.com/blog/" className="text-muted">
-                      Auth0 Blog
-                    </a>
-                  </li>
-                </ul>
-              </Col>
-              <Col className="col-6 col-md">
-                <h5>Authentication</h5>
-                <ul className="list-unstyled text-small">
-                  <li>
-                    <a href="https://oauth.net/2/" className="text-dark">
-                      OAuth 2.0
-                    </a>
-                  </li>
-                </ul>
-              </Col>
-            </Row>
-          </Container>
+          <div className="flex flex-wrap items-center py-4 px-4 border-b">
+            <div className="w-full lg:w-1/5 text-center lg:text-left">
+              <a className="text-xl text-indigo-500 font-semibold" href="#">
+                Dunder Mifflin
+              </a>
+            </div>
+
+            <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
+              <a
+                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                href="#"
+              >
+                Products
+              </a>
+              <a
+                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                href="#"
+              >
+                Team
+              </a>
+              <a
+                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                href="#"
+              >
+                Customers
+              </a>
+              <a
+                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+                href="#"
+              >
+                Blog
+              </a>
+            </div>
+
+            <div className="flex justify-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
+              <img
+                className="w-6 h-6"
+                src="placeholders/icons/message.svg"
+                alt=""
+              />
+              <img
+                className="w-6 h-6 mx-8"
+                src="placeholders/icons/share.svg"
+                alt=""
+              />
+              <img
+                className="w-6 h-6"
+                src="placeholders/icons/star.svg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="py-4 text-center">
+            <span className="block md:inline-block mb-4 md:mb-0 mx-3"></span>
+            <p className="mt-2">Identity is complex. Deal with it.</p>
+            <a
+              className="inline-block mx-4 text-blue-900 hover:text-blue-700"
+              href="#"
+            >
+              Privacy Policy
+            </a>
+            <a
+              className="inline-block mx-4 text-blue-900 hover:text-blue-700"
+              href="#"
+            >
+              Term of Service
+            </a>
+          </div>
         </footer>
       </div>
     </>

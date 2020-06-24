@@ -1,6 +1,7 @@
 import React from "react"
 import { Auth0Provider } from "./src/utils/auth"
-import "bootstrap/dist/css/bootstrap.min.css"
+import "./src/tailwind-theme.min.css"
+import "./src/utils/main"
 
 const onRedirectCallback = (appState) => {
   window.history.replaceState(

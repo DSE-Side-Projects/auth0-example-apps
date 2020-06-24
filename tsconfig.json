@@ -14,11 +14,12 @@
     "strict": false,
     "noEmit": true,
     "sourceMap": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": false,
     "noUnusedLocals": true,
     "allowJs": true,
     "resolveJsonModule": false,
+    "checkJs": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.tsx", "src"],

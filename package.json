@@ -26,7 +26,6 @@
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^10.2.1",
     "@types/auth0": "^2.20.5",
-    "@types/bootstrap": "^4.5.0",
     "@types/images": "^2.2.2",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.13",
@@ -38,7 +37,6 @@
     "babel-jest": "^26.0.1",
     "babel-preset-gatsby": "^0.4.9",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "4.5.0",
     "btoa": "1.2.1",
     "eslint": "^7.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -51,7 +49,7 @@
     "gatsby-plugin-offline": "3.2.0",
     "gatsby-plugin-react-helmet": "3.3.0",
     "gatsby-plugin-sharp": "2.6.0",
-    "gatsby-plugin-typescript": "^2.4.4",
+    "gatsby-plugin-typescript": "^2.4.7",
     "gatsby-source-filesystem": "2.3.0",
     "gatsby-source-sanity": "5.0.6",
     "gatsby-transformer-sharp": "2.5.0",
@@ -64,14 +62,21 @@
     "react-helmet": "^6.0.0",
     "react-test-renderer": "^16.13.1",
     "reactstrap": "8.4.1",
+    "tailwindcss": "^1.4.6",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "clean-css-cli": "^4.2.1",
+    "cpx": "^1.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "gatsby-cli": "^2.12.44",
-    "prettier": "^2.0.5"
+    "npm-run-all": "^4.1.3",
+    "prettier": "^2.0.5",
+    "pug": "^2.0.3",
+    "pug-cli": "^1.0.0-alpha6"
   },
   "scripts": {
     "predeploy": "yarn format && yarn lint && yarn type-check && yarn badges",
@@ -84,7 +89,17 @@
     "test": "jest --coverage",
     "type-check": "tsc --noEmit",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
-    "badges": "npx lighthouse-badges --urls https://dse.netlify.app -o badges"
+    "badges": "npx lighthouse-badges --urls https://dse.netlify.app -o badges",
+    "css:browsersync": "browser-sync start --directory --server ./public --files ./public/* --startPath index.html",
+    "css:assets": "cpx \"src/assets/**/*.*\" src/",
+    "css:compile": "tailwind build src/tailwind/tailwind/tailwind.css -c tailwind.config.js -o src/tailwind/tailwind/tailwind-theme.css",
+    "css:minify": "cleancss --level 1 --source-map --source-map-inline-sources --output src/tailwind-theme.min.css src/tailwind/tailwind/tailwind-theme.css",
+    "css": "npm-run-all --sequential css-*",
+    "css:templates": "pug --pretty -o public/ src/",
+    "css:build": "npm-run-all --sequential clean copy-* templates css",
+    "css:watch": "npm-run-all build --parallel watch-templates watch-css browsersync",
+    "css:watch-templates": "npm run templates -- --watch",
+    "css:watch-css": "npm run css-compile -- --watch"
   },
   "repository": {
     "type": "git",
