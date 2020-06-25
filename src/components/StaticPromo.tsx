@@ -95,8 +95,8 @@ const StaticPromo = () => {
           </h2>
           <div className="flex flex-wrap justify-center -mx-8">
             {/* <div className="lg:w-1/2 px-8 mb-8"> */}
-              <p className="text-center">Coming Soon</p>
-              {/* <h3 className="text-lg mb-1 font-heading font-semibold">
+            <p className="text-center">Coming Soon</p>
+            {/* <h3 className="text-lg mb-1 font-heading font-semibold">
                 How does Dunder Mifflin paper differ from other products?
               </h3>
               <p>

@@ -8,10 +8,20 @@ declare module "*.svg" {
   export default content
 }
 
+type Asset = {
+  asset: {
+    fluid: {
+      srcWebp: string
+      base64: string
+      src: string
+    }
+  }
+}
 interface Deploy {
   title: string
   deploymentUrl: string
   button: string
+  logo: Asset
 }
 
 interface Screenshot {
@@ -27,10 +37,10 @@ interface Technology {
   slug: {
     current: string
   }
-  logo: {
-    asset: {
-      url: string
-    }
+  logo: Asset
+  languages: {
+    title: string
+    logo: Asset
   }
 }
 

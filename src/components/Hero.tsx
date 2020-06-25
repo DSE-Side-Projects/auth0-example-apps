@@ -9,10 +9,7 @@ const Hero = () => {
         <div className="lg:w-1/2 px-2 lg:pr-10 mt-10 lg:mt-0 order-1 lg:order-none">
           <h2 className="text-5xl mb-6 leading-tight font-heading">
             Identity is complex. Supporting identity is even{" "}
-            <em>
-              <abbr title="Oh, shut up. Words are hard too.">complexer</abbr>
-            </em>
-            .
+            <abbr title="Words are hard 🤷🏽‍♀️">complexer</abbr>
           </h2>
           <p className="mb-8 text-gray-600 leading-relaxed">
             This site is a collection of tools, examples, pre-built source code,
@@ -22,7 +19,10 @@ const Hero = () => {
             frameworks and platforms.
           </p>
           <div>
-            <Link className="text-black-900 hover:underline hover:text-orange-900" to="/about">
+            <Link
+              className="text-black-900 hover:underline hover:text-orange-900"
+              to="/about"
+            >
               Learn more
             </Link>
           </div>

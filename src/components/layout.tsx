@@ -57,16 +57,8 @@ const Layout = ({ children }) => {
             </div>
 
             <div className="flex justify-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
-              <img
-                className="w-6 h-6 mx-8"
-                src={shareIcon}
-                alt=""
-              />
-              <img
-                className="w-6 h-6"
-                src={starIcon}
-                alt=""
-              />
+              <img className="w-6 h-6 mx-8" src={shareIcon} alt="" />
+              <img className="w-6 h-6" src={starIcon} alt="" />
             </div>
           </div>
 

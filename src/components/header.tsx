@@ -43,7 +43,7 @@ const Header = ({ siteTitle }) => {
           <div>
             {!isAuthenticated && !loading && (
               <button
-                className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 duration-200 hover:text-white rounded shadow "
+                className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 duration-200 hover:text-white rounded shadow"
                 onClick={() =>
                   loginWithRedirect({
                     appState: `${window.location.pathname}`,

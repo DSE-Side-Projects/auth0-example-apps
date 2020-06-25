@@ -34,7 +34,7 @@ export default IndexPage
 
 export const data = graphql`
   query {
-    allSanityApp {
+    allSanityApp(limit: 6) {
       edges {
         node {
           title
@@ -49,17 +49,40 @@ export const data = graphql`
             title
             deploymentUrl
             button
+            logo {
+              asset {
+                fluid(maxHeight: 30, maxWidth: 30) {
+                  base64
+                  srcWebp
+                }
+              }
+            }
           }
           github
           _rawDescription(resolveReferences: { maxDepth: 5 })
           technology {
-            title
             slug {
               current
             }
             logo {
               asset {
-                url
+                fluid(maxWidth: 100) {
+                  src
+                  base64
+                  srcWebp
+                }
+              }
+            }
+            languages {
+              title
+              logo {
+                asset {
+                  fluid(maxHeight: 30, maxWidth: 30) {
+                    src
+                    base64
+                    srcWebp
+                  }
+                }
               }
             }
           }
