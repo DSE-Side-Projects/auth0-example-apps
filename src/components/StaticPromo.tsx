@@ -17,7 +17,7 @@ const StaticPromo = () => {
           <div className="md:w-1/2 px-6 mb-6">
             <img className="mx-auto" src={shieldIcon} alt="" />
             <h3 className="text-xl my-2 font-heading">Set up and tested</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               These apps are cmpletely set up and tested for immediate
               deployment. Click a button and start troubleshooting in no time!
             </p>
@@ -25,7 +25,7 @@ const StaticPromo = () => {
           <div className="md:w-1/2 px-6 mb-6">
             <img className="mx-auto" src={cloudToolsIcon} alt="" />
             <h3 className="text-xl my-2 font-heading">Play with settings</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               Coupled with tenant settings, these apps offer a flexible and
               rapid debugging and troubleshooting in many sample environments.
             </p>
@@ -33,7 +33,7 @@ const StaticPromo = () => {
           <div className="md:w-1/2 px-6 mb-6">
             <img className="mx-auto" src={cartIcon} alt="" />
             <h3 className="text-xl my- font-heading">Value-based price</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               The best combination of quality and economy comes with our paper.
               The offer includes wides ranges of density.
             </p>
@@ -41,7 +41,7 @@ const StaticPromo = () => {
           <div className="md:w-1/2 px-6 mb-6">
             <img className="mx-auto" src={serverIcon} alt="" />
             <h3 className="text-xl my-2 font-heading">Deployment-ready</h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               Apps are ready for deployment. They are set up for you to start
               working right away!
             </p>
@@ -53,7 +53,7 @@ const StaticPromo = () => {
         <h2 className="text-4xl mb-2 leading-tight font-heading">
           Contributors
         </h2>
-        <p className="max-w-xl mx-auto mb-12 text-gray-500">
+        <p className="max-w-xl mx-auto mb-12 text-gray-700">
           Your contributions are welcome!
         </p>
         <div className="flex flex-wrap justify-center -mx-4">
@@ -69,7 +69,7 @@ const StaticPromo = () => {
             <span>
               Developer Support Engineer
               <br />
-              <span className="text-orange-900">Auth0</span>
+              <span className="text-orange-900 font-semibold">Auth0</span>
             </span>
           </div>
           <div className="w-1/2 lg:w-1/4 p-4">
@@ -82,7 +82,9 @@ const StaticPromo = () => {
             <span>
               Software Engineer
               <br />
-              <span className="text-orange-900">Code Fellows</span>
+              <span className="text-orange-900 font-semibold">
+                Code Fellows
+              </span>
             </span>
           </div>
         </div>

@@ -25,32 +25,39 @@ const Layout = ({ children }) => {
         <footer>
           <div className="flex flex-wrap items-center py-4 px-4 border-b">
             <div className="w-full lg:w-1/5 text-center lg:text-left">
-              <Link className="text-xl text-indigo-500 font-semibold" to="/">
+              <Link
+                className="text-xl text-indigo-500 font-semibold"
+                to="/"
+                title={data.site.siteMetadata.title}
+              >
                 <img
                   src={logo}
                   className="float-left mr-2"
                   width="80px"
                   alt="Auth0 logo"
+                  loading="lazy"
                 />
               </Link>
             </div>
 
             <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
-              <a
+              <Link
                 className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
-                href="#"
+                to="/"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
-                href="#"
+                to="/about"
+                title="About page"
               >
                 About
-              </a>
+              </Link>
               <a
                 className="inline-block mx-8 mb-4 lg:mb-0 text-blue-900 hover:text-orange-700"
-                href="#"
+                rel="preload"
+                href="https://auth0.com"
               >
                 Learn Identity
               </a>

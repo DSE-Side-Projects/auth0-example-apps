@@ -15,8 +15,8 @@ const IndexPage = ({ data }: IApplications) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero />
-      <div className="min-w-full">
+      <Hero data={data.coverImage} />
+      <div className="min-w-full text-red-900">
         {data && allApps ? (
           <ApplicationsComponent data={data} />
         ) : (
@@ -34,14 +34,21 @@ export default IndexPage
 
 export const data = graphql`
   query {
+    coverImage: file(relativePath: { eq: "p-dashboard-6fc11ba51b.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400, quality: 90, toFormat: WEBP) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     allSanityApp(limit: 6) {
       edges {
         node {
           title
           screenshot {
             asset {
-              fluid(maxHeight: 800, maxWidth: 800) {
-                src
+              fluid(maxWidth: 400, maxHeight: 400, toFormat: WEBP) {
+                ...GatsbySanityImageFluid
               }
             }
           }

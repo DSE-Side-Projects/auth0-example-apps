@@ -3,18 +3,20 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { ProfilePlaceholder } from "./profile"
+import Img from "gatsby-image"
 
 const AppPage = (node: IApplication) => {
   const app = node.data.sanityApp
+  console.error(app)
 
   return (
     <Layout>
       <SEO lang="en" title={app.title} />
       <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-4">
         {app.screenshot ? (
-          <img
+          <Img
             className="w-full mb-2"
-            src={app.screenshot.asset.fluid.src}
+            fluid={app.screenshot.asset.fluid}
             alt={app.title}
             loading="lazy"
           />
@@ -70,8 +72,8 @@ export const data = graphql`
       title
       screenshot {
         asset {
-          fluid(maxHeight: 800, maxWidth: 800) {
-            src
+          fluid(maxWidth: 800) {
+            ...GatsbySanityImageFluid
           }
         }
       }

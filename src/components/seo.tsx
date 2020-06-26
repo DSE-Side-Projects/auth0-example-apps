@@ -73,7 +73,9 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="preconnect" href="https://collect.usefathom.com" />
+    </Helmet>
   )
 }
 

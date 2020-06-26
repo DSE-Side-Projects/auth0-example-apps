@@ -9,7 +9,11 @@ const Header = ({ siteTitle }) => {
     <>
       <nav className="flex flex-wrap items-center justify-between bg-gray-200  p-4">
         <div className="flex flex-shrink-0 mr-6">
-          <Link className="text-xl text-black-500 font-semibold" to="/">
+          <Link
+            className="text-xl text-black-500 font-semibold"
+            to="/"
+            title={siteTitle}
+          >
             <img
               src="https://cdn.auth0.com/website/press/resources/auth0-logo-monotone-black.svg"
               className="float-left mr-2"
@@ -36,6 +40,7 @@ const Header = ({ siteTitle }) => {
             <Link
               className="block lg:inline-block py-3 px-5 mr-4 text-blue-900 hover:text-blue-700"
               to="/about"
+              title="About page"
             >
               About
             </Link>
@@ -55,7 +60,11 @@ const Header = ({ siteTitle }) => {
             )}
             {isAuthenticated && (
               <>
-                <Link className="my-auto mr-5 text-black-50" to="/profile">
+                <Link
+                  className="my-auto mr-5 text-black-50"
+                  to="/profile"
+                  title="Profile Page"
+                >
                   My Profile
                 </Link>
                 <button

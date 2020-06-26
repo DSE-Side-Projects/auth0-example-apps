@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import illustration from "../images/p-dashboard-6fc11ba51b.png"
+import Img from "gatsby-image"
 
-const Hero = () => {
+const Hero = ({ data }) => {
   return (
     <section className="py-12 px-4">
       <div className="flex flex-wrap items-center text-center lg:text-left -mx-2">
@@ -11,7 +11,7 @@ const Hero = () => {
             Identity is complex. Supporting identity is even{" "}
             <abbr title="Words are hard 🤷🏽‍♀️">complexer</abbr>
           </h2>
-          <p className="mb-8 text-gray-600 leading-relaxed">
+          <p className="mb-8 text-gray-700 leading-relaxed">
             This site is a collection of tools, examples, pre-built source code,
             compiled apps and Auth0 tenant settings. It aims to help Auth0
             Developer Support Engineers to streamline debugging, troubleshooting
@@ -22,13 +22,14 @@ const Hero = () => {
             <Link
               className="text-black-900 hover:underline hover:text-orange-900"
               to="/about"
+              title="About page"
             >
-              Learn more
+              About Sample Apps
             </Link>
           </div>
         </div>
         <div className="lg:w-1/2 px-2">
-          <img src={illustration} alt="" />
+          <Img fluid={data.childImageSharp.fluid} />
         </div>
       </div>
     </section>

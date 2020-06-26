@@ -10,11 +10,7 @@ declare module "*.svg" {
 
 type Asset = {
   asset: {
-    fluid: {
-      srcWebp: string
-      base64: string
-      src: string
-    }
+    fluid: any
   }
 }
 interface Deploy {
@@ -26,9 +22,7 @@ interface Deploy {
 
 interface Screenshot {
   asset: {
-    fluid: {
-      src: string
-    }
+    fluid: any
   }
 }
 
@@ -65,6 +59,7 @@ interface Description {
 interface IApplication {
   data?: {
     sanityApp: IApplication
+    coverImage: Screenshot
   }
   title: string
   screenshot: Screenshot
@@ -81,6 +76,7 @@ interface IApplication {
 
 interface IApplications {
   data: {
+    coverImage?: Screenshot
     allSanityApp: {
       edges: IApplicationNode[]
     }
