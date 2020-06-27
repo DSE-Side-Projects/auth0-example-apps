@@ -36,7 +36,7 @@ export const data = graphql`
   query {
     coverImage: file(relativePath: { eq: "p-dashboard-6fc11ba51b.png" }) {
       childImageSharp {
-        fluid(maxWidth: 400, quality: 90, toFormat: WEBP) {
+        fluid(maxWidth: 400, quality: 90, toFormat: PNG) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -47,7 +47,7 @@ export const data = graphql`
           title
           screenshot {
             asset {
-              fluid(maxWidth: 400, maxHeight: 400, toFormat: WEBP) {
+              fluid(maxWidth: 400, toFormat: PNG) {
                 ...GatsbySanityImageFluid
               }
             }
@@ -58,12 +58,12 @@ export const data = graphql`
             button
             logo {
               asset {
-                fluid(maxHeight: 30, maxWidth: 30) {
-                  base64
-                  srcWebp
+                fluid(maxHeight: 16, maxWidth: 16, toFormat: WEBP) {
+                  ...GatsbySanityImageFluid
                 }
               }
             }
+            icon
           }
           github
           _rawDescription(resolveReferences: { maxDepth: 5 })
@@ -74,21 +74,18 @@ export const data = graphql`
             title
             logo {
               asset {
-                fluid(maxWidth: 100) {
-                  src
-                  base64
-                  srcWebp
+                fluid(maxWidth: 16) {
+                  ...GatsbySanityImageFluid
                 }
               }
             }
+            icon
             languages {
               title
               logo {
                 asset {
-                  fluid(maxHeight: 30, maxWidth: 30) {
-                    src
-                    base64
-                    srcWebp
+                  fluid(maxWidth: 16) {
+                    ...GatsbySanityImageFluid
                   }
                 }
               }
