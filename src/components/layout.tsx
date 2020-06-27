@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="container mx-auto px-4">
-        <main>{children}</main>
+      <div className="container max-w-8xl mx-auto px-4">
+        <main className="w-full">{children}</main>
         <footer>
           <div className="flex flex-wrap items-center py-4 px-4 border-b">
             <div className="w-full lg:w-1/5 text-center lg:text-left">

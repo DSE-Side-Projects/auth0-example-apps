@@ -16,7 +16,7 @@ const IndexPage = ({ data }: IApplications) => {
     <Layout>
       <SEO title="Home" />
       <Hero data={data.coverImage} />
-      <div className="min-w-full text-red-900">
+      <div>
         {data && allApps ? (
           <ApplicationsComponent data={data} />
         ) : (

@@ -59,21 +59,23 @@ const Header = ({ siteTitle }) => {
               </button>
             )}
             {isAuthenticated && (
-              <>
-                <Link
-                  className="my-auto mr-5 text-black-50"
-                  to="/profile"
-                  title="Profile Page"
-                >
-                  My Profile
-                </Link>
-                <button
-                  className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 hover:text-white rounded shadow"
-                  onClick={() => logout()}
-                >
-                  Log out
-                </button>
-              </>
+              <div className="navbar-menu hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
+                <div className="lg:ml-auto">
+                  <Link
+                    className="my-auto mr-5 text-black-50"
+                    to="/profile"
+                    title="Profile Page"
+                  >
+                    My Profile
+                  </Link>
+                  <button
+                    className="inline-block py-3 px-5 mr-4 leading-none text-center text-white bg-orange-900 hover:bg-orange-700 hover:text-white rounded shadow"
+                    onClick={() => logout()}
+                  >
+                    Log out
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>

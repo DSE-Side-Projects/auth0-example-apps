@@ -8,33 +8,53 @@ const Application = (app: IApplicationNode) => {
 
   return (
     <>
-      <div className="md:flex shadow-2xl md:mx-auto border border-gray-300 w-sm md:w-xl h-96 rounded overflow-hidden mx-auto my-10 bg-gray-100">
+      <div className="max-w-sm w-xl lg:max-w-xl lg:flex shadow-2xl border border-gray-300 w-sm md:w-xl h-96 rounded overflow-hidden mx-auto my-10 bg-gray-100">
         <Link
           to={slug}
-          className="md:max-w-1/2 w-1/3 align-middle"
+          className="md:max-w-1/2 w-1/3 align-middle px-1 py-1"
           title={app.node.title}
         >
           {app.node.screenshot.asset.fluid ? (
             <Img
-              className="px-2 py-2 min-h-full min-w-1/3 object-cover"
-              style={{ filter: "grayscale(70%)" }}
+              className="h-36 lg:h-auto lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center"
+              style={{ filter: "grayscale(40%)" }}
               fluid={app.node.screenshot.asset.fluid}
+              title="Woman holding a mug"
               alt={app.node.title}
               loading="lazy"
             />
           ) : (
+            // <Img
+            //   className="px-2 py-2 min-h-full min-w-1/3 object-cover"
+            //   style={{ filter: "grayscale(70%)" }}
+            //   fluid=
+            //   alt={app.node.title}
+            //   loading="lazy"
+            // />
             <ProfilePlaceholder type="screenshot" />
           )}
         </Link>
-        <div className="flex w-full h-full md:w-2/3 px-4 py-4 rounded-lg flex-col justify-between">
-          <div className="flex justify-between">
-            <div className="font-bold text-xl mb-2 text-orange-900">
+        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal bg-gray-100">
+          <div className="mb-8">
+            {/* <p className="text-sm text-gray-600 flex items-center">
+              <svg
+                className="fill-current text-gray-500 w-3 h-3 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+              </svg>
+              Members only
+            </p> */}
+            <div className="text-gray-900 font-bold text-xl mb-2">
               <Link to={slug} title={app.node.title}>
-                <h2 className="text-2xl mb-2">{app.node.title}</h2>
+                <h2 className="text-2xl mb-2 text-orange-900">
+                  {app.node.title}
+                </h2>
               </Link>
               <div
                 className="flex max-h-sm"
-                style={{ filter: "grayscale(80%) opacity(40%)" }}
+                style={{ filter: "grayscale(20%) opacity(80%)" }}
               >
                 <img
                   src={app.node.technology.logo.asset.fluid.srcWebp}
@@ -59,7 +79,7 @@ const Application = (app: IApplicationNode) => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-gray-700 my-4 leading-relaxed overflow-hidden antialiased sm:subpixel-antialiased md:antialiased lg:subpixel-antialiased xl:antialiased">
+          <p className="text-gray-700 text-base">
             {app.node._rawDescription[0].children[0].text}
           </p>
           <div className="flex justify-between mt-4 top-auto">

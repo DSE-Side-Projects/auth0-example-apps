@@ -28,7 +28,7 @@ const Hero = ({ data }) => {
             </Link>
           </div>
         </div>
-        <div className="lg:w-1/2 px-2">
+        <div className="lg:w-1/2 md:w-1/3 px-2">
           <Img fluid={data.childImageSharp.fluid} />
         </div>
       </div>
