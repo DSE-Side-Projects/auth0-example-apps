@@ -71,6 +71,7 @@ export const data = graphql`
             slug {
               current
             }
+            title
             logo {
               asset {
                 fluid(maxWidth: 100) {

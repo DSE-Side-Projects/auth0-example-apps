@@ -7,7 +7,7 @@ const Applications = (data: IApplications) => {
     return <ContentPlaceholder />
   }
   return (
-    <div className="flex flex-wrap w-full justify-between px-1 py-2">
+    <div className="flex flex-wrap w-1/3 justify-between px-1 py-2">
       {data.data.allSanityApp.edges.map((app: IApplicationNode) => (
         <Application node={app.node} key={app.node.slug.current} />
       ))}
