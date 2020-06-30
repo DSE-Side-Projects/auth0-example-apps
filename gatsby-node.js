@@ -7,8 +7,10 @@ const createAppPages = async (graphql, actions, reporter) => {
           node {
             title
             screenshot {
-              asset {
-                url
+              image {
+                asset {
+                  url
+                }
               }
             }
             _rawDescription(resolveReferences: { maxDepth: 5 })

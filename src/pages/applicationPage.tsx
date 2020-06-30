@@ -13,10 +13,10 @@ const AppPage = (node: IApplication) => {
     <Layout>
       <SEO lang="en" title={app.title} />
       <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-4">
-        {app.screenshot ? (
+        {app.screenshot.image ? (
           <Img
             className="w-full mb-2"
-            fluid={app.screenshot.asset.fluid}
+            fluid={app.screenshot.image.asset.fluid}
             alt={app.title}
             loading="lazy"
           />
@@ -71,9 +71,11 @@ export const data = graphql`
     sanityApp(_id: { eq: $id }) {
       title
       screenshot {
-        asset {
-          fluid(maxWidth: 800) {
-            ...GatsbySanityImageFluid
+        image {
+          asset {
+            fluid(maxWidth: 800) {
+              ...GatsbySanityImageFluid
+            }
           }
         }
       }

@@ -46,9 +46,11 @@ export const data = graphql`
         node {
           title
           screenshot {
-            asset {
-              fluid(maxWidth: 400, toFormat: PNG) {
-                ...GatsbySanityImageFluid
+            image {
+              asset {
+                fluid(maxWidth: 400, toFormat: PNG) {
+                  ...GatsbySanityImageFluid
+                }
               }
             }
           }
@@ -63,7 +65,6 @@ export const data = graphql`
                 }
               }
             }
-            icon
           }
           github
           _rawDescription(resolveReferences: { maxDepth: 5 })
@@ -79,7 +80,6 @@ export const data = graphql`
                 }
               }
             }
-            icon
             languages {
               title
               logo {

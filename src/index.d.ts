@@ -21,9 +21,12 @@ interface Deploy {
 }
 
 interface Screenshot {
-  asset: {
-    fluid: any
+  image: {
+    asset: {
+      fluid: any
+    }
   }
+  screenshotMetadata: any
 }
 
 interface Technology {

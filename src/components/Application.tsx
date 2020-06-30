@@ -15,11 +15,11 @@ const Application = (app: IApplicationNode) => {
             // className="md:max-w-1/2 w-1/3 align-middle px-1 py-1"
             title={app.node.title}
           >
-            {app.node.screenshot.asset.fluid ? (
+            {app.node.screenshot.image.asset.fluid ? (
               <Img
                 className="absolute w-full object-cover"
                 style={{ filter: "grayscale(40%)" }}
-                fluid={app.node.screenshot.asset.fluid}
+                fluid={app.node.screenshot.image.asset.fluid}
                 title={app.node.title}
                 alt={app.node.title}
                 loading="lazy"
@@ -37,11 +37,11 @@ const Application = (app: IApplicationNode) => {
             </span>
           </div>
 
-          <h4 className="my-3 font-semibold text-3xl text-orange-900 leading-tight truncate">
+          <h4 className="my-3 font-semibold text-3xl text-orange-900 leading-tight">
             <Link
               to={slug}
               title={app.node.title}
-              className="flex items-center"
+              className="flex w-full items-center break-normal"
             >
               {app.node.title}{" "}
             </Link>
