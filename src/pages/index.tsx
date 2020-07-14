@@ -41,7 +41,7 @@ export const data = graphql`
         }
       }
     }
-    allSanityApp(limit: 6) {
+    allSanityApp(limit: 10) {
       edges {
         node {
           title
