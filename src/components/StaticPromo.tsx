@@ -69,7 +69,8 @@ const StaticPromo = () => {
             <span>
               Developer Support Engineer
               <br />
-              <span className="text-orange-900 font-semibold">Auth0</span>
+              <span className="text-orange-900 font-semibold">
+                <a href="https://auth0.com">Auth0</a></span>
             </span>
           </div>
           <div className="w-1/2 lg:w-1/4 p-4">
@@ -83,7 +84,7 @@ const StaticPromo = () => {
               Software Engineer
               <br />
               <span className="text-orange-900 font-semibold">
-                Code Fellows
+              <a href="https://www.samaritan.city/">Samaritan</a>
               </span>
             </span>
           </div>

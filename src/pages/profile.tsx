@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "reactstrap"
 import React, { FunctionComponent } from "react"
 import ContentLoader from "react-content-loader"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 import { useAuth0 } from "../utils/auth"
 
 const Profile: FunctionComponent = () => {
