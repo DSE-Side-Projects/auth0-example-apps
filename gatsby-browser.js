@@ -13,9 +13,13 @@ const onRedirectCallback = (appState) => {
   )
 }
 
-const Auth0Domain = process.env.AUTH0_DOMAIN
-const Auth0ClientID = process.env.AUTH0_CLIENTID
-const Auth0Audience = process.env.AUTH0_AUDIENCE
+const AUTH0_DOMAIN = "auth.dseapps.dev"
+const AUTH0_CLIENTID = "vwsI9UiL0Q7LXSOe2imitZvPg1ffRm4C"
+const AUTH0_AUDIENCE = "https://sample-apps.auth0.com/api/v2/"
+
+const Auth0Domain = AUTH0_DOMAIN
+const Auth0ClientID = AUTH0_CLIENTID
+const Auth0Audience = AUTH0_AUDIENCE
 export const wrapRootElement = ({ element }) => (
   <Auth0Provider
     domain={Auth0Domain}
