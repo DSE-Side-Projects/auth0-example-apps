@@ -20,7 +20,9 @@ const Nav = () => {
                   />
                 </a>
               </Link>
-              <p className="text-2xl ml-3 text-black-500">DSE Sample Apps</p>
+              <Link href="/">
+                <a className="text-2xl ml-3 text-black-500">DSE Sample Apps</a>
+              </Link>
               <div className="-mr-2 flex items-center md:hidden"></div>
             </div>
           </div>

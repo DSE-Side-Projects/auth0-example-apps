@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 
 const Hero = () => {
@@ -13,11 +12,13 @@ const Hero = () => {
             <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl xl:text-6xl">
               <span className="block text-gray-900 leading-snag">
                 Identity is complex. Supporting identity{' '}
-                <span className="block text-orange">is even complexer</span>
+                <span className="block text-orange">
+                  is even <abbr title="Words are hard 🤷‍♂️">complexer</abbr>
+                </span>
               </span>
             </span>
           </h1>
-          <p className="mt-3 xl:leading-relaxed text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+          <p className="mt-3 xl:leading-relaxed text-gray-800 sm:mt-5 md:text-2xl sm:text-3xl lg:text-xl xl:text-xl">
             This site is a collection of tools, examples, pre-built source code,
             compiled apps and Auth0 tenant settings. It aims to help Auth0
             Developer Support Engineers to streamline debugging, troubleshooting
@@ -31,8 +32,9 @@ const Hero = () => {
               className="w-full object-contain sm:ml-10"
               src="/dashboard.png"
               layout="intrinsic"
-              width={300}
-              height={200}
+              loading="eager"
+              width={800}
+              height={600}
               alt=""
             />
           </div>

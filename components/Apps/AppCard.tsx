@@ -1,10 +1,15 @@
+import Image from 'next/image';
+
 function AppCard() {
   return (
-    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden mb-10">
       <div className="flex-shrink-0">
-        <img
+        <Image
           className="h-48 w-full object-cover"
           src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+          loading="lazy"
+          width={600}
+          height={400}
           alt=""
         />
       </div>

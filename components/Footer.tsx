@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Footer = () => {
   return (
     <footer className="bg-white">
@@ -6,22 +8,12 @@ const Footer = () => {
           className="-mx-5 -my-2 flex flex-wrap justify-center"
           aria-label="Footer"
         >
-          <div className="px-5 py-2">
-            <a
-              href="/about"
-              className="text-base text-gray-500 hover:text-gray-900"
-            >
-              About
-            </a>
+          <div className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
+            <Link href="/about">About</Link>
           </div>
 
-          <div className="px-5 py-2">
-            <a
-              href="/updates"
-              className="text-base text-gray-500 hover:text-gray-900"
-            >
-              Updates
-            </a>
+          <div className="px-5 py-2 text-base text-gray-500 hover:text-gray-900">
+            <Link href="/updates">Updates</Link>
           </div>
 
           <div className="px-5 py-2">
@@ -30,15 +22,6 @@ const Footer = () => {
               className="text-base text-gray-500 hover:text-gray-900"
             >
               Jobs
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a
-              href="/accessibility"
-              className="text-base text-gray-500 hover:text-gray-900"
-            >
-              Accessibility
             </a>
           </div>
         </nav>
