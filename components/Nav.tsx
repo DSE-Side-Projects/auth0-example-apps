@@ -28,9 +28,9 @@ const Nav = () => {
           </div>
           <div className="hidden md:block text-right">
             <span className="inline-flex rounded-md shadow-md ring-1 ring-black ring-opacity-5">
-              <button className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">
+              <a href="/api/login" className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">
                 Log in
-              </button>
+              </a>
             </span>
           </div>
         </nav>

@@ -18,7 +18,7 @@ const Hero = () => {
               </span>
             </span>
           </h1>
-          <p className="mt-3 xl:leading-relaxed text-gray-800 sm:mt-5 md:text-2xl sm:text-3xl lg:text-xl xl:text-xl">
+          <p className="mt-3 xl:leading-relaxed text-gray-800 sm:mt-5 md:text-2xl sm:text-10xl xs:text-10xl lg:text-xl xl:text-xl">
             This site is a collection of tools, examples, pre-built source code,
             compiled apps and Auth0 tenant settings. It aims to help Auth0
             Developer Support Engineers to streamline debugging, troubleshooting
