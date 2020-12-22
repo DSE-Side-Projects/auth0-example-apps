@@ -1,6 +1,6 @@
 import AppCard from './AppCard';
 
-function AppGrid() {
+function AppGrid({ apps }) {
   return (
     <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="relative max-w-7xl mx-auto">
@@ -14,12 +14,9 @@ function AppGrid() {
           </p>
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          <AppCard />
-          <AppCard />
-          <AppCard />
-          <AppCard />
-          <AppCard />
-          <AppCard />
+          {apps.map((app) => (
+            <AppCard app={app} />
+          ))}
         </div>
       </div>
     </div>
