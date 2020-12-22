@@ -9,6 +9,7 @@ import {
 } from '../../lib/sanity';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
+import Image from 'next/image';
 
 const appQuery = groq`
   *[_type == 'app' && slug.current == $slug][0]{
@@ -64,14 +65,34 @@ export default function App({ data, preview = false }) {
   return (
     <>
       <Nav />
-      <article>
-        <h2>{title}</h2>
-        <figure>
-          <img src={urlFor(screenshot).url()} />
-        </figure>
-        <PortableText blocks={description} />
-        <aside></aside>
-      </article>
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-base font-semibold text-orange tracking-wide uppercase">
+              Frontend
+            </h2>
+            <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+              {title}
+            </p>
+            <div className="max-w-xl my-10 mx-auto text-xl text-gray-500">
+              <PortableText blocks={description} />
+            </div>
+          </div>
+          <div className="relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <Image
+                className="h-48 w-full object-cover"
+                src={screenshot.image.asset.url}
+                loading="lazy"
+                width={1200}
+                height={800}
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
