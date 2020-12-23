@@ -6,11 +6,11 @@ export default initAuth0({
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
   scope: 'openid profile',
-  redirectUri: 'http://192.168.7.46:3000/api/callback',
-  postLogoutRedirectUri: 'http://192.168.7.46:3000/',
+  redirectUri: 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/api/callback',
+  postLogoutRedirectUri: 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/',
   session: {
     // The secret used to encrypt the cookie.
-    cookieSecret: 'DC6cP0TilntxWDL4I+pSaAenkqUctR5gyVyFeOW8/Kw=',
+    cookieSecret: process.env.COOKIE_SECRET,
     // The cookie lifetime (expiration) in seconds. Set to 8 hours by default.
     cookieLifetime: 60 * 60 * 8,
     // (Optional) The cookie domain this should run on. Leave it blank to restrict it to your domain.
