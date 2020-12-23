@@ -23,7 +23,15 @@ function AppCard({ app }) {
         <div className="flex-1">
           <p className="text-sm font-medium text-indigo-600">
             <Link href={`/category/${app.slug}`}>
-              <a className="hover:underline">Frontend</a>
+              <a className="hover:underline">
+                {['Vue', 'React', 'Angular'].includes(app.technology.title)
+                  ? 'Frontend'
+                  : ['Java Spring MVC', 'Swift', 'Objective-C'].includes(
+                      app.technology.title
+                    )
+                  ? 'Native'
+                  : 'Backend'}
+              </a>
             </Link>
           </p>
           <Link href={`/apps/${app.slug}`}>
