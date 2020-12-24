@@ -44,8 +44,6 @@ const Dashboard = ({user}) => {
 export default Dashboard;
 
 export async function getServerSideProps(context) {
-  
-
   if (typeof window === 'undefined') {
     const session = await auth0.getSession(context.req);
     if (!session || !session.user) {
@@ -53,7 +51,7 @@ export async function getServerSideProps(context) {
         Location: '/api/login'
       });
       context.res.end();
-      return;
+      return null;
     }
     
     return {

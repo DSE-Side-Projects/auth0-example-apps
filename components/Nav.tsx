@@ -45,14 +45,3 @@ const Nav = ({user}) => {
 };
 
 export default Nav;
-
-
-export async function getServersideProps (context) {
-  const session = await auth0.getSession(context.req)
-  return {
-    props:
-    {
-      user: session?.user || null
-    }
-  }
-}
