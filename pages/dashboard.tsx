@@ -50,7 +50,11 @@ export async function getServerSideProps(context) {
         Location: '/api/login'
       });
       context.res.end();
-      return null;
+      return {
+        props: {
+          user: null
+        }
+      };
     }
     
     return {
