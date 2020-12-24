@@ -2,7 +2,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 
-const PageNotFound = () => {
+const PageNotFound = ({statusCode}) => {
   return (
     <>
     <Head>
