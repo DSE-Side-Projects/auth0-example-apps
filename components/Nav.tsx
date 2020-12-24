@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import auth0 from '../utils/auth0';
 
-const Nav = () => {
+const Nav = ({user}) => {
   return (
     <>
       <div className="relative pt-6 pb-6 sm:pb-6 lg:pb-4 shadow-md bg-gray-50">
@@ -28,9 +29,13 @@ const Nav = () => {
           </div>
           <div className="hidden md:block text-right">
             <span className="inline-flex rounded-md shadow-md ring-1 ring-black ring-opacity-5">
-              <a href="/api/login" className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">
-                Log in
-              </a>
+              { !user ? <Link href="/dashboard">
+                <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">Dashboard</a>
+              </Link> :
+              <Link href="/api/logout">
+              <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">Logout</a>
+            </Link>
+            }
             </span>
           </div>
         </nav>
@@ -40,3 +45,14 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+export async function getServersideProps (context) {
+  const session = await auth0.getSession(context.req)
+  return {
+    props:
+    {
+      user: session?.user || null
+    }
+  }
+}

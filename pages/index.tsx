@@ -7,8 +7,9 @@ import Footer from '../components/Footer';
 import AppGrid from '../components/Apps/AppGrid';
 import { groq } from 'next-sanity';
 import { getClient } from '../lib/sanity';
+import auth0 from '../utils/auth0';
 
-const HomePage = ({ apps }) => {
+const HomePage = ({ apps, user }) => {
   return (
     <>
       <Head>
@@ -17,7 +18,7 @@ const HomePage = ({ apps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png"></link>
       </Head>
-      <Nav />
+      <Nav user={user} />
       <Hero />
       <Features />
       <AppGrid apps={apps} />

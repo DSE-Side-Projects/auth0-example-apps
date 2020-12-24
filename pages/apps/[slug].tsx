@@ -15,6 +15,7 @@ const appQuery = groq`
   *[_type == 'app' && slug.current == $slug][0]{
   title,
   github,
+  url,
   quickstart,
   description,
   "screenshot": screenshot {
@@ -73,11 +74,12 @@ export default function App({ data, preview = false }) {
     technology,
     deploy,
     github,
+    url
   } = data.app;
 
   return (
     <>
-      <Nav />
+      <Nav user={null} />
       <div className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -97,20 +99,7 @@ export default function App({ data, preview = false }) {
               <PortableText blocks={description} />
             </div>
           </div>
-          <div className="container justify-center flex xl:flex-nowrap lg:flex-wrap md:flex-wrap sm:flex-wrap flex-wrap w-full h-full">
-            <div className="mr-2 xl:w-1/3 md:w-full shadow-2xl">
-              <div className="mx-auto my-auto flex place-items-center h-full px-4 sm:px-6">
-                <Image
-                  className="self-center w-full"
-                  src={screenshot.image.asset.url}
-                  loading="lazy"
-                  width={1200}
-                  height={530}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="bg-white md:w-full lg:w-full xl:w-2/3 my-10 shadow overflow-hidden sm:rounded-lg">
+            <div className="bg-white md:w-full lg:w-full xl:w-2/3 my-10 mx-auto shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
                   About this app
@@ -191,9 +180,9 @@ export default function App({ data, preview = false }) {
                               aria-hidden="true"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               />
                             </svg>
                             <span className="ml-2 flex-1 w-0 truncate">
@@ -219,9 +208,9 @@ export default function App({ data, preview = false }) {
                               aria-hidden="true"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               />
                             </svg>
                             <span className="ml-2 flex-1 w-0 truncate">
@@ -243,7 +232,16 @@ export default function App({ data, preview = false }) {
                 </dl>
               </div>
             </div>
-          </div>
+            <a href={url} className="hover:shadow-2xl hover:border-orange"><Image
+                  className="self-center w-full object-cover "
+                  src={screenshot.image.asset.url}
+                  loading="lazy"
+                  layout="responsive"
+                  width={1200}
+                  height={900}
+                  alt=""
+                />
+                </a>
         </div>
       </div>
 

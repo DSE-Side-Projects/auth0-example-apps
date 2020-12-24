@@ -15,7 +15,7 @@ function AppGrid({ apps }) {
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {apps.map((app) => (
-            <AppCard app={app} />
+            <AppCard app={app} key={app.title}/>
           ))}
         </div>
       </div>

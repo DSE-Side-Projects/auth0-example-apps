@@ -5,9 +5,9 @@ export default initAuth0({
   domain: 'auth.dseapps.dev',
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  scope: 'openid profile',
-  redirectUri: 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/api/callback',
-  postLogoutRedirectUri: 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/',
+  scope: 'openid profile email',
+  redirectUri: process.env.NODE_ENV === "production" ? 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/api/callback' : "http://localhost:3000/api/callback",
+  postLogoutRedirectUri: process.env.NODE_ENV === "production" ? 'https://dseapps-dev-git-nextjs.auth0-dse.vercel.app/' : "http://localhost:3000" ,
   session: {
     // The secret used to encrypt the cookie.
     cookieSecret: process.env.COOKIE_SECRET,

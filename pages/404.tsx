@@ -1,10 +1,17 @@
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 
 const PageNotFound = () => {
   return (
     <>
-      <Nav />
+    <Head>
+        <title>404, damn it! | DSE Sample Apps</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png"></link>
+      </Head>
+      <Nav user={null} />
       <div className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="text-center">
