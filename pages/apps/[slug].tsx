@@ -10,6 +10,7 @@ import {
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
+import PageNotFound from '../404';
 
 const appQuery = groq`
   *[_type == 'app' && slug.current == $slug][0]{
@@ -58,7 +59,7 @@ export default function App({ data, preview = false }) {
 
   if (!router.isFallback && !data.app?.slug) {
     console.error('ERROR');
-    return <ErrorPage statusCode={404} />;
+    return <PageNotFound statusCode="null" />;
   }
 
   const { data: app } = usePreviewSubscription(appQuery, {
