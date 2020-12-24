@@ -70,7 +70,7 @@ yarn-error.log
 
 # Local Netlify folder
 .netlify
-
+.vscode
+.vercel
 public/
-.vscode/
 .yarn/
