@@ -17,15 +17,17 @@ const Dashboard = ({ user }) => {
       <Nav user={user} />
       <div>
         <img
-          className=" z-50  h-32 w-full object-cover lg:h-48"
-          src="/markus-spiske-iar-afB0QQw-unsplash.jpg"
+          className="z-50 max-h-32 w-full object-cover lg:max-h-48"
+          src="/bg.jpg"
           alt=""
         />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
             <div className="flex">
-              <img
+              <Image
                 className="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
+                width={150}
+                height={150}
                 src={user.picture}
                 alt=""
               />

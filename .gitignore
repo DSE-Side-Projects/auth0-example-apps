@@ -72,6 +72,5 @@ yarn-error.log
 .netlify
 .vscode
 .vercel
-public/
 .yarn/
 .next/
