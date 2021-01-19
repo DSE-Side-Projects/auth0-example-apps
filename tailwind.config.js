@@ -1,14 +1,17 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+  purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       ...colors,
       orange: {
-        DEFAULT: "#eb5424"
-      }
+        DEFAULT: "#FF4F40",
+      },
+    },
+    fontFamily: {
+      sans: ["Space Grotesk"],
     },
     extend: {},
   },

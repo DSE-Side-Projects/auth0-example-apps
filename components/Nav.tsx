@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import auth0 from '../utils/auth0';
+import Link from "next/link"
 
-const Nav = ({user}) => {
+const Nav = ({ user }) => {
   return (
     <>
       <div className="relative pt-6 pb-6 sm:pb-6 lg:pb-4 shadow-md bg-gray-50">
@@ -14,34 +13,38 @@ const Nav = ({user}) => {
               <span className="sr-only">DSE Sample Apps</span>
               <Link href="/">
                 <a>
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src="https://cdn.auth0.com/website/press/resources/auth0-logo-monotone-black.svg"
-                    alt=""
-                  />
+                  <img className="h-8 w-auto sm:h-10" src="/logo.png" alt="" />
                 </a>
               </Link>
               <Link href="/">
-                <a className="text-2xl ml-3 text-black-500">DSE Sample Apps</a>
+                <a className="text-4xl ml-3 font-semibold text-black-500">
+                  DSE Sample Apps
+                </a>
               </Link>
               <div className="-mr-2 flex items-center md:hidden"></div>
             </div>
           </div>
           <div className="hidden md:block text-right">
             <span className="inline-flex rounded-md shadow-md ring-1 ring-black ring-opacity-5">
-              { !user ? <Link href="/dashboard">
-                <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">Dashboard</a>
-              </Link> :
-              <Link href="/api/logout">
-              <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">Logout</a>
-            </Link>
-            }
+              {!user ? (
+                <Link href="/dashboard">
+                  <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">
+                    Dashboard
+                  </a>
+                </Link>
+              ) : (
+                <Link href="/api/logout">
+                  <a className="inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md text-orange font-semibold bg-white hover:bg-gray-50">
+                    Logout
+                  </a>
+                </Link>
+              )}
             </span>
           </div>
         </nav>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav
